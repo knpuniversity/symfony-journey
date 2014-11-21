@@ -1,0 +1,51 @@
+AppBundle\Entity\Dinosaur:
+    dino1:
+        __construct:
+            - <firstName()>
+            - Tyrannosaur
+            - http://0.tqn.com/y/dinosaurs/1/L/Y/B/-/-/tyrannosaurusKC2.jpg
+    dino2:
+        __construct:
+            - <firstName()>
+            - Brachiosaurus
+            - http://0.tqn.com/y/dinosaurs/1/L/u/f/-/-/brachiosaurusNT.jpg
+    dino3:
+        __construct:
+            - <firstName()>
+            - Pachyrhinosaurus
+            - http://0.tqn.com/y/dinosaurs/1/L/R/2/-/-/pachyrhinosaurus.jpg
+    dino4:
+        __construct:
+            - <firstName()>
+            - Raptor
+            - http://0.tqn.com/y/dinosaurs/1/L/e/B/-/-/velociraptorAB.jpg
+    dino5:
+        __construct:
+            - <firstName()>
+            - Ankylosaur
+            - http://dinosaurs.about.com/od/typesofdinosaurs/a/ankylosaurs.htm
+    dino6:
+        __construct:
+            - <firstName()>
+            - Epidexipteryx
+            - http://0.tqn.com/y/dinosaurs/1/L/G/_/-/-/Epidexipteryx-hui.jpg
+    dino7:
+        __construct:
+            - <firstName()>
+            - Hadrosaur
+            - http://0.tqn.com/y/dinosaurs/1/L/x/2/-/-/duckbillluisrey.jpg
+    dino8:
+        __construct:
+            - <firstName()>
+            - Ornithomimus
+            - http://0.tqn.com/y/dinosaurs/1/L/1/a/-/-/JLornithomimus.png
+    dino9:
+        __construct:
+            - <firstName()>
+            - Muttaburrasaurus
+            - http://0.tqn.com/y/dinosaurs/1/L/G/5/-/-/muttaburrasaurus.jpg
+    dino10:
+        __construct:
+            - <firstName()>
+            - Stygimoloch
+            - http://0.tqn.com/y/dinosaurs/1/L/6/3/-/-/stygiluisrey.jpg
