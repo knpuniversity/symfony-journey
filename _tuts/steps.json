@@ -24,7 +24,32 @@
             "id": "eventlistener-print-user-agent",
             "name": "EventListener: Print user-agent",
             "description": null
+        },
+        {
+            "id": "request-adding-an-ismac-argument-to-every-controller",
+            "name": "Request: Adding an isMac argument to every controller",
+            "description": null
+        },
+        {
+            "id": "sub-request-creating-the-latest-tweets",
+            "name": "Sub-Request: Creating the latest tweets",
+            "description": null
+        },
+        {
+            "id": "sub-request-using-ismac",
+            "name": "Sub-Request: Using isMac",
+            "description": null
+        },
+        {
+            "id": "sub-request-listener-only-on-the-master-request",
+            "name": "Sub-Request: Listener only on the master request",
+            "description": null
+        },
+        {
+            "id": "sub-request-properly-pass-the-variable",
+            "name": "Sub-Request Properly pass the variable",
+            "description": null
         }
     ],
-    "sha": "958a42757453c1a2b7ce2067de7d5ce5e143bb1c"
+    "sha": "28bb4f1bca9f193d2abc8d5e9b610f6cd3331fc9"
 }

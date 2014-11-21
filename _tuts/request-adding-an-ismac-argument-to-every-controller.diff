@@ -1,0 +1,48 @@
+diff --git a/app/Resources/views/dinosaurs/index.html.twig b/app/Resources/views/dinosaurs/index.html.twig
+index 9a91b16..e744248 100644
+--- a/app/Resources/views/dinosaurs/index.html.twig
++++ b/app/Resources/views/dinosaurs/index.html.twig
+@@ -1,7 +1,7 @@
+ {% extends 'base.html.twig' %}
+ 
+ {% block body %}
+-    <h1>Dinosaurs!</h1>
++    <h1>Dinosaurs{{ isMac ? ' Love Eating Macs!' : '' }}!</h1>
+ 
+     <table>
+         {% for dino in dinos %}
+diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
+index 6a28131..e0a297d 100644
+--- a/src/AppBundle/Controller/DinosaurController.php
++++ b/src/AppBundle/Controller/DinosaurController.php
+@@ -11,7 +11,7 @@ class DinosaurController extends Controller
+     /**
+      * @Route("/", name="dinosaur_list")
+      */
+-    public function indexAction()
++    public function indexAction($isMac)
+     {
+         $dinos = $this->getDoctrine()
+             ->getRepository('AppBundle:Dinosaur')
+@@ -19,6 +19,7 @@ class DinosaurController extends Controller
+ 
+         return $this->render('dinosaurs/index.html.twig', [
+             'dinos' => $dinos,
++            'isMac' => $isMac
+         ]);
+     }
+ 
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index ed0216e..23fd225 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -22,6 +22,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
+         $userAgent = $request->headers->get('User-Agent');
+ 
+         $this->logger->info('Hello there browser: '.$userAgent);
++
++        $isMac = stripos($userAgent, 'Mac') !== false;
++        $request->attributes->set('isMac', $isMac);
+     }
+ 
+     public static function getSubscribedEvents()

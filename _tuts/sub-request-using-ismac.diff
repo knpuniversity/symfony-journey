@@ -1,0 +1,50 @@
+diff --git a/app/Resources/views/dinosaurs/_latestTweets.html.twig b/app/Resources/views/dinosaurs/_latestTweets.html.twig
+index 7dedcc9..d931919 100644
+--- a/app/Resources/views/dinosaurs/_latestTweets.html.twig
++++ b/app/Resources/views/dinosaurs/_latestTweets.html.twig
+@@ -1,3 +1,5 @@
++{{ isMac ? 'on a Mac' : 'Not on a Mac' }}<br/>
++
+ Tweets from <a href="https://twitter.com/TyrannosrsREX">@T-Rex Problems</a>
+ <ul>
+     {% for tweet in tweets %}
+diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
+index 92fd9cd..466ea54 100644
+--- a/src/AppBundle/Controller/DinosaurController.php
++++ b/src/AppBundle/Controller/DinosaurController.php
+@@ -35,7 +35,7 @@ class DinosaurController extends Controller
+         ]);
+     }
+ 
+-    public function _latestTweetsAction()
++    public function _latestTweetsAction($isMac)
+     {
+         $tweets = [
+             'Dinosaurs can have existential crises too you know.',
+@@ -44,7 +44,8 @@ class DinosaurController extends Controller
+         ];
+ 
+         return $this->render('dinosaurs/_latestTweets.html.twig', [
+-            'tweets' => $tweets
++            'tweets' => $tweets,
++            'isMac' => $isMac
+         ]);
+     }
+-} 
+\ No newline at end of file
++}
+\ No newline at end of file
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index 23fd225..87117f6 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -24,6 +24,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
+         $this->logger->info('Hello there browser: '.$userAgent);
+ 
+         $isMac = stripos($userAgent, 'Mac') !== false;
++        if ($request->query->get('notMac')) {
++            $isMac = false;
++        }
+         $request->attributes->set('isMac', $isMac);
+     }
+ 

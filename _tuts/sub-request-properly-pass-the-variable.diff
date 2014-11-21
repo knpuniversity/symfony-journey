@@ -1,0 +1,38 @@
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index 1381690..7458f3b 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -9,7 +9,9 @@
+     <body>
+         {% block body %}{% endblock %}
+ 
+-        {{ render(controller('AppBundle:Dinosaur:_latestTweets')) }}
++        {{ render(controller('AppBundle:Dinosaur:_latestTweets', {
++            'userOnMac': app.request.attributes.get('isMac')
++        })) }}
+         {% block javascripts %}{% endblock %}
+     </body>
+ </html>
+diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
+index 466ea54..777d8d2 100644
+--- a/src/AppBundle/Controller/DinosaurController.php
++++ b/src/AppBundle/Controller/DinosaurController.php
+@@ -35,7 +35,7 @@ class DinosaurController extends Controller
+         ]);
+     }
+ 
+-    public function _latestTweetsAction($isMac)
++    public function _latestTweetsAction($userOnMac)
+     {
+         $tweets = [
+             'Dinosaurs can have existential crises too you know.',
+@@ -45,7 +45,7 @@ class DinosaurController extends Controller
+ 
+         return $this->render('dinosaurs/_latestTweets.html.twig', [
+             'tweets' => $tweets,
+-            'isMac' => $isMac
++            'isMac' => $userOnMac
+         ]);
+     }
+ }
+\ No newline at end of file

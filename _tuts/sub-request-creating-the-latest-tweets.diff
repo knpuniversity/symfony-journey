@@ -1,0 +1,55 @@
+diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
+index bafd28d..1381690 100644
+--- a/app/Resources/views/base.html.twig
++++ b/app/Resources/views/base.html.twig
+@@ -2,12 +2,14 @@
+ <html>
+     <head>
+         <meta charset="UTF-8" />
+-        <title>{% block title %}Welcome!{% endblock %}</title>
++        <title>{% block title %}Journey to the Center of Symfony{% endblock %}</title>
+         {% block stylesheets %}{% endblock %}
+         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+     </head>
+     <body>
+         {% block body %}{% endblock %}
++
++        {{ render(controller('AppBundle:Dinosaur:_latestTweets')) }}
+         {% block javascripts %}{% endblock %}
+     </body>
+ </html>
+diff --git a/app/Resources/views/dinosaurs/_latestTweets.html.twig b/app/Resources/views/dinosaurs/_latestTweets.html.twig
+new file mode 100644
+index 0000000..7dedcc9
+--- /dev/null
++++ b/app/Resources/views/dinosaurs/_latestTweets.html.twig
+@@ -0,0 +1,6 @@
++Tweets from <a href="https://twitter.com/TyrannosrsREX">@T-Rex Problems</a>
++<ul>
++    {% for tweet in tweets %}
++        <li>{{ tweet }}</li>
++    {% endfor %}
++</ul>
+diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
+index e0a297d..92fd9cd 100644
+--- a/src/AppBundle/Controller/DinosaurController.php
++++ b/src/AppBundle/Controller/DinosaurController.php
+@@ -34,4 +34,17 @@ class DinosaurController extends Controller
+             'dino' => $dino,
+         ]);
+     }
++
++    public function _latestTweetsAction()
++    {
++        $tweets = [
++            'Dinosaurs can have existential crises too you know.',
++            'Eating lollipops... ',
++            'Rock climbing... '
++        ];
++
++        return $this->render('dinosaurs/_latestTweets.html.twig', [
++            'tweets' => $tweets
++        ]);
++    }
+ } 
+\ No newline at end of file
