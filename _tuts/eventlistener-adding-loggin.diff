@@ -1,0 +1,40 @@
+diff --git a/app/config/services.yml b/app/config/services.yml
+index 649b432..3a3aaf6 100644
+--- a/app/config/services.yml
++++ b/app/config/services.yml
+@@ -6,5 +6,6 @@ parameters:
+ services:
+     user_agent_subscriber:
+         class: AppBundle\EventListener\UserAgentSubscriber
++        arguments: ["@logger"]
+         tags:
+             - { name: kernel.event_subscriber }
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index e1fea4d..b5cbeab 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -2,14 +2,22 @@
+ 
+ namespace AppBundle\EventListener;
+ 
++use Psr\Log\LoggerInterface;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+ use Symfony\Component\HttpKernel\KernelEvents;
+ 
+ class UserAgentSubscriber implements EventSubscriberInterface
+ {
+-    public function onKernelRequest()
++    private $logger;
++
++    public function __construct(LoggerInterface $logger)
++    {
++        $this->logger = $logger;
++    }
++
++    public function onKernelRequest($event)
+     {
+-        die('does it work?');
++        $this->logger->info('Yea, it totally works!');
+     }
+ 
+     public static function getSubscribedEvents()
