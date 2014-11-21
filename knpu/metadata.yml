@@ -1,0 +1,42 @@
+title:  Journey to the Center of Symfony: HttpKernel and the Container
+summary: |
+    Let's not just *use* Symfony, let's conquer it! In this series, you and
+    I will journey to the center of Symfony by ripping open the source code,
+    adding debug statements and seeing what *really* happens between the
+    request and the response. It's as geeky-awesome as it sounds.
+
+    [Besides dinosaurs](http://upload.wikimedia.org/wikipedia/commons/a/a0/Amazing_Stories_June_1926.jpg),
+    expect to do the following on our adventure:
+
+    * Create an event listener that does amazing things
+    * Step through the `HttpKernel::handle()` method that's used in Symfony and Drupal 8
+    * See where event like `kernel.request`, `kernel.response` and others are dispatched
+    * Create custom [ParamConverter](http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html)-like functionality
+    * Find out what a sub-request is and how to treat it
+    * See how Symfony *builds* the container (woh)
+    * Learn how DependencyInjection Extension classes work (i.e. the guys who process all that `config.yml` stuff)
+    * Discover existing compiler passes and create your own
+
+illustration: sf2-journey.png
+hasVideoDownload: 0
+
+tuts_hero:
+    start_step: start
+
+chapters:
+    event-subscriber:
+        is_finished: false
+    httpkernel-handle:
+        is_finished: false
+    httpkernel-handle-the-sequel:
+        is_finished: false
+    sub-requests:
+        is_finished: false
+    booting-the-kernel:
+        is_finished: false
+    building-the-container:
+        is_finished: false
+    dependency-injection-extension-classes:
+        is_finished: false
+    compiler-passes:
+        is_finished: false
