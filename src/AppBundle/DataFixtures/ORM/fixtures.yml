@@ -23,7 +23,7 @@ AppBundle\Entity\Dinosaur:
         __construct:
             - <firstName()>
             - Ankylosaur
-            - http://dinosaurs.about.com/od/typesofdinosaurs/a/ankylosaurs.htm
+            - http://0.tqn.com/y/dinosaurs/1/L/D/3/-/-/nodosaurus.jpg
     dino6:
         __construct:
             - <firstName()>

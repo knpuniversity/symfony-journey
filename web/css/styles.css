@@ -1,0 +1,11 @@
+/**Header**/
+
+.dino-header {margin-top: 80px; margin-bottom: 20px;}
+
+/**Dino Images**/
+.dino-img {margin-top: 25px; height: 300px; width: 300px; align: center;}
+.dino-name {color: #000; font-size: 1.5em; text-align: center;}
+.dino-img-show {margin-bottom: 50px;}
+
+/**Dino Show Page**/
+.btn-margin {margin-bottom: 50px; max-width: 434px;}

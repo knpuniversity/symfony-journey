@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ dino.name }} the {{ dino.type }}</h1>
-
-    <img src="{{ dino.imageUrl }}" alt="{{ dino.type }}"/>
-
-    <a href="{{ path('dinosaur_list') }}">Back</a>
+    <div class="dino-header text-center">
+        <h1>{{ dino.name }} the {{ dino.type }}</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="{{ dino.imageUrl }}" alt="{{ dino.type }}" class="center-block img-rounded dino-img-show"/>
+                <br>
+                <a href="{{ path('dinosaur_list') }}" class="center-block btn btn-warning btn-margin"> < Back</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

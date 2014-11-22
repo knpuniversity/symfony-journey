@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Dinosaurs!</h1>
-
-    <table>
-        {% for dino in dinos %}
-            <tr>
-                <td>
+    <div class="container">
+        <div class="dino-header text-center">
+            <h1>Dinosaurs!</h1>
+        </div>
+        <div class="row">
+            {% for dino in dinos %}
+                <div class="center-block col-xs-12 col-sm-6 col-md-4">
                     <a href="{{ path('dinosaur_show', {'id': dino.id}) }}">
-                        {{ dino.name }} the {{ dino.type }}
+                        <img src="{{ dino.imageUrl }}"  alt="{{ dino.type }}" class="center-block img-thumbnail dino-img"/>
                     </a>
-                </td>
-                <td>
+                    <br>
                     <a href="{{ path('dinosaur_show', {'id': dino.id}) }}">
-                        <img src="{{ dino.imageUrl }}"  alt="{{ dino.type }}"/>
+                        <p class="dino-name">{{ dino.name }} the {{ dino.type }}</p>
                     </a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
