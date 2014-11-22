@@ -4,16 +4,16 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Journey to the Center of Symfony!{% endblock %}</title>
         
-        <!-- Bootstrap -->
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="/css/styles.css" rel="stylesheet">
-        <!-- GOogle Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-        
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <!-- Bootstrap -->
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+            <!-- Custom CSS -->
+            <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+            <!-- Google Fonts -->
+            <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
@@ -44,9 +44,7 @@
                 </div>
             </div>
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-           <!-- Include all compiled plugins (below), or include individual files as needed -->
-           <script src="js/bootstrap.min.js"></script>
+
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
