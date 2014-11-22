@@ -10,3 +10,7 @@
 
 /**Dino Show Page**/
 .btn-margin {margin-bottom: 50px; max-width: 434px;}
+
+/**Tweets in Footer**/
+.tweets {background: #4099FF; height: 50px; width: 200px; border-radius:5px;}
+.tweets p {color: #fff; padding-top: 5px;}
