@@ -17,9 +17,6 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-          
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -28,7 +25,10 @@
                     </a>
                 </div>
             </div>
-        </nav>  
+        </nav>
+
+        {% block body %}{% endblock %}
+
         <div class="navbar-inverse navbar-static-bottom" role="navigation">
             <div class="container">
                 <div class="navbar-text">
