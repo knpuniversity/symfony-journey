@@ -1,18 +1,18 @@
 diff --git a/app/Resources/views/base.html.twig b/app/Resources/views/base.html.twig
-index 1381690..7458f3b 100644
+index ac58259..1865bd7 100644
 --- a/app/Resources/views/base.html.twig
 +++ b/app/Resources/views/base.html.twig
-@@ -9,7 +9,9 @@
-     <body>
-         {% block body %}{% endblock %}
+@@ -39,7 +39,9 @@
+                 </div>
+                 <div class="clearfix">
+                 </div>
+-                {{ render(controller('AppBundle:Dinosaur:_latestTweets')) }}
++                {{ render(controller('AppBundle:Dinosaur:_latestTweets', {
++                    'userOnMac': app.request.attributes.get('isMac')
++                })) }}
+             </div>
+         </div>
  
--        {{ render(controller('AppBundle:Dinosaur:_latestTweets')) }}
-+        {{ render(controller('AppBundle:Dinosaur:_latestTweets', {
-+            'userOnMac': app.request.attributes.get('isMac')
-+        })) }}
-         {% block javascripts %}{% endblock %}
-     </body>
- </html>
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
 index 466ea54..777d8d2 100644
 --- a/src/AppBundle/Controller/DinosaurController.php

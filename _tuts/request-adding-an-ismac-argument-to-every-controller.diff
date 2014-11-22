@@ -1,16 +1,17 @@
 diff --git a/app/Resources/views/dinosaurs/index.html.twig b/app/Resources/views/dinosaurs/index.html.twig
-index 9a91b16..e744248 100644
+index f739b57..2fbe668 100644
 --- a/app/Resources/views/dinosaurs/index.html.twig
 +++ b/app/Resources/views/dinosaurs/index.html.twig
-@@ -1,7 +1,7 @@
- {% extends 'base.html.twig' %}
- 
- {% block body %}
--    <h1>Dinosaurs!</h1>
-+    <h1>Dinosaurs{{ isMac ? ' Love Eating Macs!' : '' }}!</h1>
- 
-     <table>
-         {% for dino in dinos %}
+@@ -5,6 +5,9 @@
+         <div class="dino-header text-center">
+             <h1>Journey to the Center of the Earth</h1>
+             <h2 class="journey-font">DINOSAURS!</h2>
++            {% if isMac %}
++                <h3>We love eating Mac's...RAWR!</h3>
++            {% endif %}
+         </div>
+         <div class="row">
+             {% for dino in dinos %}
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
 index 6a28131..e0a297d 100644
 --- a/src/AppBundle/Controller/DinosaurController.php

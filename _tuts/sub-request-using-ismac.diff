@@ -1,13 +1,19 @@
 diff --git a/app/Resources/views/dinosaurs/_latestTweets.html.twig b/app/Resources/views/dinosaurs/_latestTweets.html.twig
-index 7dedcc9..d931919 100644
+index 636858c..c108b9f 100644
 --- a/app/Resources/views/dinosaurs/_latestTweets.html.twig
 +++ b/app/Resources/views/dinosaurs/_latestTweets.html.twig
-@@ -1,3 +1,5 @@
-+{{ isMac ? 'on a Mac' : 'Not on a Mac' }}<br/>
+@@ -1,9 +1,11 @@
+ 
+ <div class="navbar-left tweets">
+     <p class="text-center">Tweets from T-Rex Problems</p>
++    <p class="text-center">{{ isMac ? 'on a Mac' : 'Not on a Mac' }}</p>
+     <ul>
+         {% for tweet in tweets %}
+             <li>{{ tweet }}</li>
+         {% endfor %}
+     </ul>
+ </div>
 +
- Tweets from <a href="https://twitter.com/TyrannosrsREX">@T-Rex Problems</a>
- <ul>
-     {% for tweet in tweets %}
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
 index 92fd9cd..466ea54 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
