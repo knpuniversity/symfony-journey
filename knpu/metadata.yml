@@ -30,6 +30,8 @@ chapters:
         is_finished: false
     httpkernel-handle-the-sequel:
         is_finished: false
+    httpkernel-handle-finishing-up:
+        is_finished: false
     sub-requests:
         is_finished: false
     booting-the-kernel:
