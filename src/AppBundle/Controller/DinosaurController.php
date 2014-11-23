@@ -23,12 +23,18 @@ class DinosaurController extends Controller
     }
 
     /**
-     * Btw, this uses the ParamConvert to use the {id} to query for the Dinosaur entity
-     *
      * @Route("/dinosaurs/{id}", name="dinosaur_show")
      */
-    public function showAction(Dinosaur $dino)
+    public function showAction($id)
     {
+        $dino = $this->getDoctrine()
+            ->getRepository('AppBundle:Dinosaur')
+            ->find($id);
+
+        if (!$dino) {
+            throw $this->createNotFoundException('That dino is extinct!');
+        }
+
         return $this->render('dinosaurs/show.html.twig', [
             'dino' => $dino,
         ]);
