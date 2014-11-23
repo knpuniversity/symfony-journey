@@ -1,3 +1,23 @@
+diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
+index 9b5919e..a84e73c 100644
+--- a/src/AppBundle/Controller/DinosaurController.php
++++ b/src/AppBundle/Controller/DinosaurController.php
+@@ -17,6 +17,7 @@ class DinosaurController extends Controller
+             ->getRepository('AppBundle:Dinosaur')
+             ->findAll();
+ 
++        /*
+         $request = new Request();
+         $request->attributes->set(
+             '_controller',
+@@ -27,6 +28,7 @@ class DinosaurController extends Controller
+             $request,
+             HttpKernelInterface::SUB_REQUEST
+         );
++        */
+ 
+         return $this->render('dinosaurs/index.html.twig', [
+             'dinos' => $dinos,
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
 index 86f2f57..4ebf8fa 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php

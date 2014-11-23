@@ -1,0 +1,22 @@
+diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
+index ddb793c..9b5919e 100644
+--- a/src/AppBundle/Controller/DinosaurController.php
++++ b/src/AppBundle/Controller/DinosaurController.php
+@@ -17,6 +17,17 @@ class DinosaurController extends Controller
+             ->getRepository('AppBundle:Dinosaur')
+             ->findAll();
+ 
++        $request = new Request();
++        $request->attributes->set(
++            '_controller',
++            'AppBundle:Dinosaur:_latestTweets'
++        );
++        $httpKernel = $this->container->get('http_kernel');
++        $response = $httpKernel->handle(
++            $request,
++            HttpKernelInterface::SUB_REQUEST
++        );
++
+         return $this->render('dinosaurs/index.html.twig', [
+             'dinos' => $dinos,
+             'isMac' => $isMac

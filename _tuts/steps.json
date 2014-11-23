@@ -46,6 +46,11 @@
             "description": null
         },
         {
+            "id": "sub-request-create-one-manually",
+            "name": "Sub-Request: Create one manually",
+            "description": null
+        },
+        {
             "id": "sub-request-listener-only-on-the-master-request",
             "name": "Sub-Request: Listener only on the master request",
             "description": null
@@ -56,5 +61,5 @@
             "description": null
         }
     ],
-    "sha": "9aae375da35eba0f40469c83bea0072a52b1a5d2"
+    "sha": "060418f4207fb5db6ea8b8dc48472d7f18214be0"
 }

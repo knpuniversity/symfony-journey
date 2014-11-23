@@ -14,10 +14,10 @@ index ac58259..1865bd7 100644
          </div>
  
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
-index ddb793c..13d7beb 100644
+index a84e73c..5b402e1 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
 +++ b/src/AppBundle/Controller/DinosaurController.php
-@@ -41,7 +41,7 @@ class DinosaurController extends Controller
+@@ -54,7 +54,7 @@ class DinosaurController extends Controller
          ]);
      }
  
@@ -26,7 +26,7 @@ index ddb793c..13d7beb 100644
      {
          $tweets = [
              'Dinosaurs can have existential crises too you know.',
-@@ -51,7 +51,7 @@ class DinosaurController extends Controller
+@@ -64,7 +64,7 @@ class DinosaurController extends Controller
  
          return $this->render('dinosaurs/_latestTweets.html.twig', [
              'tweets' => $tweets,
