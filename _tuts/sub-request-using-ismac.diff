@@ -15,10 +15,10 @@ index 636858c..c108b9f 100644
  </div>
 +
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
-index 92fd9cd..466ea54 100644
+index 028c488..ddb793c 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
 +++ b/src/AppBundle/Controller/DinosaurController.php
-@@ -35,7 +35,7 @@ class DinosaurController extends Controller
+@@ -41,7 +41,7 @@ class DinosaurController extends Controller
          ]);
      }
  
@@ -27,7 +27,7 @@ index 92fd9cd..466ea54 100644
      {
          $tweets = [
              'Dinosaurs can have existential crises too you know.',
-@@ -44,7 +44,8 @@ class DinosaurController extends Controller
+@@ -50,7 +50,8 @@ class DinosaurController extends Controller
          ];
  
          return $this->render('dinosaurs/_latestTweets.html.twig', [
@@ -39,9 +39,8 @@ index 92fd9cd..466ea54 100644
 -} 
 \ No newline at end of file
 +}
-\ No newline at end of file
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 23fd225..87117f6 100644
+index 624d091..86f2f57 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
 @@ -24,6 +24,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
@@ -52,5 +51,5 @@ index 23fd225..87117f6 100644
 +            $isMac = false;
 +        }
          $request->attributes->set('isMac', $isMac);
-     }
  
+         /*

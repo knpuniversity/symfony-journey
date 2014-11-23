@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index ed0216e..8e881ed 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -22,6 +22,10 @@ class UserAgentSubscriber implements EventSubscriberInterface
+         $userAgent = $request->headers->get('User-Agent');
+ 
+         $this->logger->info('Hello there browser: '.$userAgent);
++
++        $request->attributes->set('_controller', function($id) {
++            return new Response('Hello '.$id);
++        });
+     }
+ 
+     public static function getSubscribedEvents()

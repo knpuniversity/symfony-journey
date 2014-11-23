@@ -13,7 +13,7 @@ index f739b57..2fbe668 100644
          <div class="row">
              {% for dino in dinos %}
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
-index 6a28131..e0a297d 100644
+index bc4a8d9..3f9105e 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
 +++ b/src/AppBundle/Controller/DinosaurController.php
 @@ -11,7 +11,7 @@ class DinosaurController extends Controller
@@ -34,16 +34,21 @@ index 6a28131..e0a297d 100644
      }
  
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index ed0216e..23fd225 100644
+index 8e881ed..624d091 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -22,6 +22,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
-         $userAgent = $request->headers->get('User-Agent');
+@@ -23,9 +23,14 @@ class UserAgentSubscriber implements EventSubscriberInterface
  
          $this->logger->info('Hello there browser: '.$userAgent);
-+
+ 
 +        $isMac = stripos($userAgent, 'Mac') !== false;
 +        $request->attributes->set('isMac', $isMac);
++
++        /*
+         $request->attributes->set('_controller', function($id) {
+             return new Response('Hello '.$id);
+         });
++        */
      }
  
      public static function getSubscribedEvents()

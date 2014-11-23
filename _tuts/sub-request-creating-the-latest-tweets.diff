@@ -26,10 +26,10 @@ index 0000000..636858c
 +    </ul>
 +</div>
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
-index e0a297d..92fd9cd 100644
+index 3f9105e..028c488 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
 +++ b/src/AppBundle/Controller/DinosaurController.php
-@@ -34,4 +34,17 @@ class DinosaurController extends Controller
+@@ -40,4 +40,17 @@ class DinosaurController extends Controller
              'dino' => $dino,
          ]);
      }
