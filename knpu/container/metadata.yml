@@ -1,0 +1,30 @@
+title:  Journey to the Center of Symfony: The Container
+summary: |
+    Let's not just *use* Symfony, let's conquer it! In this series, we're
+    going to rip open the code that builds and boots Symfony's Container
+    to see how it really works. Yes, this is geeky, and yes it's sweet!
+
+    Besides the occassional [dinosaur](http://upload.wikimedia.org/wikipedia/commons/a/a0/Amazing_Stories_June_1926.jpg),
+    expect to do the following on our adventure:
+
+    * Debug that code that boots Symfony's Kernel
+    * See how Symfony *builds* the container (woh)
+    * Learn about the ContainerBuilder
+    * Learn how DependencyInjection Extension classes work (i.e. the guys who process all that `config.yml` stuff)
+    * Discover existing compiler passes and create your own
+
+illustration: sf2-journey-container.png
+hasVideoDownload: 0
+
+tuts_hero:
+    # start_step: start
+
+chapters:
+    booting-the-kernel:
+        is_finished: false
+    building-the-container:
+        is_finished: false
+    dependency-injection-extension-classes:
+        is_finished: false
+    compiler-passes:
+        is_finished: false
