@@ -10,3 +10,6 @@ security:
 
         default:
             anonymous: ~
+
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
