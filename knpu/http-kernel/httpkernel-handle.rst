@@ -12,8 +12,8 @@ And really, ``app.php`` is basically identical, so it doesn't matter which
 one we start going through. Ignore all the stuff at the top of ``app_dev.php``,
 I want to get to the good stuff.
 
-the first important thing is that we instantiate the AppKernel, which is
-the same AppKernel you have in your ``app/`` directory where you register
+The first important thing is that we instantiate the ``AppKernel``, which
+is the same ``AppKernel`` you have in your ``app/`` directory where you register
 your bundles. We'll talk more about this class in another part of this series.
 We'll also talk then about this ``loadClassCache``, but for now, comment
 it out - it can get in the way if you're debugging core classes.

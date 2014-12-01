@@ -6,7 +6,7 @@ Symfony! In this first part, we'll be talking about the deep, dark core piece
 called the HttpKernel, a wondrous component that not only sits at the heart
 of Symfony, but also at the heart of Silex, Drupal 8, PhpBB and a lot of
 other stuff. How is that possible? We'll find out! And this stuff is really
-nerdy and fun, so you're going to enjoy it as well.
+nerdy, so we're going to have some fun.
 
 I already have the starting point of our app ready on my computer. You can
 download this right on the screencast page. I've already run ``composer install``,
@@ -19,7 +19,7 @@ Now let's use the built-in PHP web server to get our site running.
 Perfect!
 
 So in true Journey to the Center of the "Symfony" theme, we're going to talk
-about dinosaurs. I've already created an app, which as 2 pages. We can list
+about dinosaurs. I've already created an app, which has 2 pages. We can list
 dinosaurs - these are coming out of the database - and if we click on one
 of them, we go to the show page for that dinosaur.
 
@@ -49,8 +49,8 @@ you can see the Twig template and even some Doctrine calls being made.
 
 Before and after that, there are a lot of event listeners - you notice a
 lot of things that end in the word Listener. That's because most of the things
-that happen between the request and the response in Symfony are events: they're
-your chance to hook into those events with event listeners.
+that happen between the request and the response in Symfony are events: you
+have the chance to hook into them with event listeners.
 
 In fact, one other tab I really like on here is the Events tab. You can see
 there's some event called ``kernel.request``. Maybe you already understand
@@ -71,13 +71,13 @@ where you configure *which* events you want to listen to.
 
 I'm going to create a subscriber here because it's a little more flexible.
 So ``UserAgentSubscriber`` needs to implement ``EventSubscriberInterface``.
-Notice that added the use statement up there. And we're going to need to
+Notice that it added the use statement up there. And we're going to need to
 implement 1 method which is ``getSubscribedEvents``. What this is going to
 return is a simple array that says: Hey, apparently there's some event whose
-name is kernel.request - we don't necessary know why it's called or what
+name is ``kernel.request`` - we don't necessary know why it's called or what
 it does yet - but when that event happens, I want Symfony to call this 
-onKernelRequest function, which we're going to be inside of this class. For
-now, let's just put a ``die('it works');``.
+``onKernelRequest`` function, which we're going to put inside of this class.
+For now, let's just put a ``die('it works');``.
 
 Cool! The event subscriber is ready to go. No, Symfony doesn't automatically
 know this class is here or automatically scan the codebase. So to get Symfony
@@ -92,7 +92,7 @@ arguments yet, so I'll just put an empty array. Now in order for Symfony
 to know this is an event subscriber, we'll use something called a tag, and
 set its name to ``kernel.event_subscriber``.
 
-Now, that tag is a called a dependency injection tag, which is really awesome
+Now, that tag is called a dependency injection tag, which is really awesome,
 really advanced and really fun to work with inside of Symfony. And we're
 going to talk about it in a different part of this series. With just this
 configuration, Symfony will boot, it'll know about our subscriber, and when
@@ -110,7 +110,7 @@ isn't going to work unless we go back to ``services.yml`` and tell Symfony:
 Hey, we need the ``@logger`` service. Cool!
 
 Let's refresh! It works, and if we click into the profiler, one of the
-tabs is called "Logs", and under info we can see the message. So this is
+tabs is called "Logs", and under "info" we can see the message. So this is
 already working, and if we go back to the Timeline and look closely, we should
 see our ``UserAgentSubscriber``. And it's right there. Also, if we go back
 to the events tab, we see the ``kernel.request`` with all of its listeners.
@@ -129,11 +129,11 @@ event you listen to is going to pass you a different type of event object.
 But no worries! I'm going to use the new ``dump()`` function from Symfony 2.6.
 Let's go back a few pages, refresh, and the dump function prints that out
 right in the web debug toolbar. And we can see it's dumping a ``GetResponseEvent``
-object. So that's awesome - no we know what type of is being passed to us.
-And that's important because every event object will have different methods
-and different information on it.
+object. So that's awesome - now we know what type of object is being passed
+to us. And that's important because every event object will have different
+methods and different information on it.
 
-Let's type hint the argument. Notice I'm using PHPStorm, so that added a
+Let's type-hint the argument. Notice I'm using PHPStorm, so that added a
 nice ``use`` statement to the top - don't forget that. What I want to do
 is get the ``User-Agent`` header and print that out in a log message. Fortunately,
 this ``getResponseEvent`` object gives us access to the request object. And
