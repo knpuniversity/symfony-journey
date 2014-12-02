@@ -24,6 +24,7 @@ tuts_hero:
 chapters:
     event-subscriber:
         is_finished: false
+        video_key:   mms49xuxzd
     httpkernel-handle:
         is_finished: false
     httpkernel-handle-the-sequel:
