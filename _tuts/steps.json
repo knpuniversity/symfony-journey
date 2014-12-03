@@ -31,6 +31,16 @@
             "description": null
         },
         {
+            "id": "request-create-and-process-2-requests",
+            "name": "Request: Create and process 2 requests",
+            "description": null
+        },
+        {
+            "id": "request-remove-2-requests-code",
+            "name": "Request: Remove 2 requests code",
+            "description": null
+        },
+        {
             "id": "request-use-kernelevents-request",
             "name": "Request: Use KernelEvents::REQUEST",
             "description": null
@@ -71,5 +81,5 @@
             "description": null
         }
     ],
-    "sha": "0362341f37345f22f76570b339ab93b1f53ff970"
+    "sha": "2a207483606b487b1d918cf784e8014936a52813"
 }

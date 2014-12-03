@@ -1,0 +1,16 @@
+diff --git a/web/app_dev.php b/web/app_dev.php
+index 5d0d88d..e0279c2 100644
+--- a/web/app_dev.php
++++ b/web/app_dev.php
+@@ -26,9 +26,5 @@ $kernel = new AppKernel('dev', true);
+ $kernel->loadClassCache();
+ $request = Request::createFromGlobals();
+ $response = $kernel->handle($request);
+-
+-$request2 = Request::create('/dinosaurs/22');
+-$response2 = $kernel->handle($request2);
+-
+-echo $response;
+-echo $response2;
++$response->send();
++$kernel->terminate($request, $response);
