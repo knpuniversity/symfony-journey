@@ -10,7 +10,7 @@ index 649b432..3a3aaf6 100644
          tags:
              - { name: kernel.event_subscriber }
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 3e3b393..d77d4de 100644
+index c002379..d77d4de 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
 @@ -2,13 +2,21 @@
@@ -32,7 +32,7 @@ index 3e3b393..d77d4de 100644
 +
 +    public function onKernelRequest($event)
      {
--        die('does it work?');
+-        die('it works');
 +        $this->logger->info('Yea, it totally works!');
      }
  
