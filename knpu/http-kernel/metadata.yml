@@ -26,6 +26,8 @@ chapters:
         is_finished: false
     httpkernel-handle:
         is_finished: false
+    httpkernel-router-listener:
+        is_finished: false
     httpkernel-handle-the-sequel:
         is_finished: false
     httpkernel-the-magic:
