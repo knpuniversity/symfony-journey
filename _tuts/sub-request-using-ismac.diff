@@ -40,7 +40,7 @@ index 028c488..ddb793c 100644
 \ No newline at end of file
 +}
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 624d091..86f2f57 100644
+index 4fa9f0a..c48dad7 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
 @@ -24,6 +24,9 @@ class UserAgentSubscriber implements EventSubscriberInterface

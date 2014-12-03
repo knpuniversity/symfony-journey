@@ -1,14 +1,13 @@
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 6c85523..e1fea4d 100644
+index 6c85523..3e3b393 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -2,6 +2,21 @@
+@@ -2,6 +2,19 @@
  
  namespace AppBundle\EventListener;
  
 -class UserAgentSubscriber
 +use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-+use Symfony\Component\HttpKernel\KernelEvents;
 +
 +class UserAgentSubscriber implements EventSubscriberInterface
  {
@@ -20,8 +19,7 @@ index 6c85523..e1fea4d 100644
 +    public static function getSubscribedEvents()
 +    {
 +        return array(
-+            // equal to kernel.request
-+            KernelEvents::REQUEST => 'onKernelRequest'
++            'kernel.request' => 'onKernelRequest'
 +        );
 +    }
  }

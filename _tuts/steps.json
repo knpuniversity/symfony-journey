@@ -31,6 +31,11 @@
             "description": null
         },
         {
+            "id": "request-use-kernelevents-request",
+            "name": "Request: Use KernelEvents::REQUEST",
+            "description": null
+        },
+        {
             "id": "request-overriding-controller-temporarily",
             "name": "Request: Overriding _controller temporarily",
             "description": null
@@ -66,5 +71,5 @@
             "description": null
         }
     ],
-    "sha": "7cf15de698f72c1199eaf2230ec838c972fbb144"
+    "sha": "0976008a42e9c208ec5bcaea44d049b132ae423b"
 }

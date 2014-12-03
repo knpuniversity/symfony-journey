@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 78ffa36..ed0216e 100644
+index 729f374..df1283f 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
 @@ -4,6 +4,7 @@ namespace AppBundle\EventListener;
@@ -7,10 +7,10 @@ index 78ffa36..ed0216e 100644
  use Psr\Log\LoggerInterface;
  use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 +use Symfony\Component\HttpKernel\Event\GetResponseEvent;
- use Symfony\Component\HttpKernel\KernelEvents;
  
  class UserAgentSubscriber implements EventSubscriberInterface
-@@ -15,10 +16,12 @@ class UserAgentSubscriber implements EventSubscriberInterface
+ {
+@@ -14,10 +15,12 @@ class UserAgentSubscriber implements EventSubscriberInterface
          $this->logger = $logger;
      }
  

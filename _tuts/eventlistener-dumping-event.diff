@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index b5cbeab..78ffa36 100644
+index d77d4de..729f374 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -17,6 +17,7 @@ class UserAgentSubscriber implements EventSubscriberInterface
+@@ -16,6 +16,7 @@ class UserAgentSubscriber implements EventSubscriberInterface
  
      public function onKernelRequest($event)
      {

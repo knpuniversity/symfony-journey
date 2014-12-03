@@ -1,0 +1,22 @@
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index df1283f..f1578ce 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -5,6 +5,7 @@ namespace AppBundle\EventListener;
+ use Psr\Log\LoggerInterface;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
++use Symfony\Component\HttpKernel\KernelEvents;
+ 
+ class UserAgentSubscriber implements EventSubscriberInterface
+ {
+@@ -26,7 +27,8 @@ class UserAgentSubscriber implements EventSubscriberInterface
+     public static function getSubscribedEvents()
+     {
+         return array(
+-            'kernel.request' => 'onKernelRequest'
++            // constant that means kernel.request
++            KernelEvents::REQUEST => 'onKernelRequest'
+         );
+     }
+ }

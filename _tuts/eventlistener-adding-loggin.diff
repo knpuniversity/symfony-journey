@@ -10,16 +10,15 @@ index 649b432..3a3aaf6 100644
          tags:
              - { name: kernel.event_subscriber }
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index e1fea4d..b5cbeab 100644
+index 3e3b393..d77d4de 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -2,14 +2,22 @@
+@@ -2,13 +2,21 @@
  
  namespace AppBundle\EventListener;
  
 +use Psr\Log\LoggerInterface;
  use Symfony\Component\EventDispatcher\EventSubscriberInterface;
- use Symfony\Component\HttpKernel\KernelEvents;
  
  class UserAgentSubscriber implements EventSubscriberInterface
  {
