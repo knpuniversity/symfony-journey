@@ -10,7 +10,7 @@ index 649b432..3a3aaf6 100644
          tags:
              - { name: kernel.event_subscriber }
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index c002379..d77d4de 100644
+index c002379..ec3bcd6 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
 @@ -2,13 +2,21 @@
@@ -22,7 +22,6 @@ index c002379..d77d4de 100644
  
  class UserAgentSubscriber implements EventSubscriberInterface
  {
--    public function onKernelRequest()
 +    private $logger;
 +
 +    public function __construct(LoggerInterface $logger)
@@ -30,7 +29,7 @@ index c002379..d77d4de 100644
 +        $this->logger = $logger;
 +    }
 +
-+    public function onKernelRequest($event)
+     public function onKernelRequest()
      {
 -        die('it works');
 +        $this->logger->info('Yea, it totally works!');

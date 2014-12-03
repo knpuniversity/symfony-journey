@@ -1,10 +1,13 @@
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index d77d4de..729f374 100644
+index ec3bcd6..729f374 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -16,6 +16,7 @@ class UserAgentSubscriber implements EventSubscriberInterface
+@@ -14,8 +14,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
+         $this->logger = $logger;
+     }
  
-     public function onKernelRequest($event)
+-    public function onKernelRequest()
++    public function onKernelRequest($event)
      {
 +        dump($event);
          $this->logger->info('Yea, it totally works!');
