@@ -1,0 +1,20 @@
+diff --git a/app/config/routing.yml b/app/config/routing.yml
+index b0d35d5..7ae46e0 100644
+--- a/app/config/routing.yml
++++ b/app/config/routing.yml
+@@ -1,8 +1,8 @@
+-_app_bundle_annotations:
+-    resource: @AppBundle/Controller
+-    type:     annotation
++#_app_bundle_annotations:
++#    resource: @AppBundle/Controller
++#    type:     annotation
+ 
+-#dinosaur_list:
+-#    path: /
+-#    defaults:
+-#        _controller: AppBundle:Dinosaur:index
++dinosaur_list:
++    path: /
++    defaults:
++        _controller: AppBundle:Dinosaur:index
