@@ -11,6 +11,11 @@
             "description": null
         },
         {
+            "id": "eventlistener-initial-code",
+            "name": "EventListener: Initial code",
+            "description": null
+        },
+        {
             "id": "eventlistener-adding-loggin",
             "name": "EventListener: Adding loggin",
             "description": null
@@ -61,5 +66,5 @@
             "description": null
         }
     ],
-    "sha": "060418f4207fb5db6ea8b8dc48472d7f18214be0"
+    "sha": "7cf15de698f72c1199eaf2230ec838c972fbb144"
 }

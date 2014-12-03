@@ -15,29 +15,14 @@ index 5c76fc5..649b432 100644
 +            - { name: kernel.event_subscriber }
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
 new file mode 100644
-index 0000000..e1fea4d
+index 0000000..6c85523
 --- /dev/null
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -0,0 +1,22 @@
+@@ -0,0 +1,7 @@
 +<?php
 +
 +namespace AppBundle\EventListener;
 +
-+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-+use Symfony\Component\HttpKernel\KernelEvents;
-+
-+class UserAgentSubscriber implements EventSubscriberInterface
++class UserAgentSubscriber
 +{
-+    public function onKernelRequest()
-+    {
-+        die('does it work?');
-+    }
-+
-+    public static function getSubscribedEvents()
-+    {
-+        return array(
-+            // equal to kernel.request
-+            KernelEvents::REQUEST => 'onKernelRequest'
-+        );
-+    }
 +}
