@@ -237,7 +237,7 @@ Now in our function, we'll log a very important message::
     }
 
 And of course this isn't going to work unless we go back to ``services.yml``
-and tell Symfony: Hey, we need the ``@logger`` service::
+and tell Symfony: Hey, we need the ``@logger`` service:
 
 .. code-block:: yaml
 
@@ -326,3 +326,5 @@ working perfectly.
 Even if we don't understand everything that's happening between the request
 and response, we already know that there are these listeners that happen.
 But next, we're going to walk through the code that handles *all* of this.
+
+.. _`dependency injection tag`: http://symfony.com/doc/current/reference/dic_tags.html

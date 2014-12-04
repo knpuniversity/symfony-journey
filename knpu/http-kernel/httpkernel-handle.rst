@@ -190,3 +190,5 @@ All these very different pieces of software all use this same function. How
 is that possible? How could this one function be responsible for a Symfony
 application and a Drupal 8 application and a PhpBB application? We'll find
 out.
+
+.. _`superglobal variables`: http://php.net/manual/en/language.variables.superglobals.php
