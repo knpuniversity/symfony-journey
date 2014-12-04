@@ -23,7 +23,8 @@ tuts_hero:
     finish_step: sub-request-properly-pass-the-variable
 chapters:
     event-subscriber:
-        is_finished: false
+        is_free: true
+        video_key:   mms49xuxzd
     httpkernel-handle:
         is_finished: false
     httpkernel-router-listener:
