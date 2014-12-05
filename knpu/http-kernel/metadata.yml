@@ -32,7 +32,9 @@ chapters:
         video_key: yp4xg4kvc2
     httpkernel-router-listener:
         is_finished: false
-    httpkernel-handle-the-sequel:
+    determine-the-controller:
+        is_finished: false
+    kernel.controller-and-getarguments:
         is_finished: false
     httpkernel-the-magic:
         is_finished: false
