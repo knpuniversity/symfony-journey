@@ -117,9 +117,7 @@ RouterListener.
 Let's close this up and go back to ``HttpKernel``. At this point, the *only*
 thing we've done is dispatch the ``kernel.request`` event and the only listener
 that's really important is the ``RouterListener``. And all it did was modify
-the ``$request->attributes``. So not a lot has happened yet. 
-
-------------
+the ``$request->attributes``. So not a lot has happened yet.
 
 If we follow this down, there's a really interesting ``if`` statement. If
 the event has a response - and I'll show you what that means - it exits
