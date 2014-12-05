@@ -28,7 +28,8 @@ chapters:
         is_free: true
         video_key:   mms49xuxzd
     httpkernel-handle:
-        is_finished: false
+        is_free: true
+        video_key: yp4xg4kvc2
     httpkernel-router-listener:
         is_finished: false
     httpkernel-handle-the-sequel:
