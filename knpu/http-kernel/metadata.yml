@@ -36,6 +36,8 @@ chapters:
         is_finished: false
     kernel.controller-and-getarguments:
         is_finished: false
+    kernel.view-event:
+        is_finished: false
     httpkernel-handle-finishing-up:
         is_finished: false
     httpkernel-the-magic:
