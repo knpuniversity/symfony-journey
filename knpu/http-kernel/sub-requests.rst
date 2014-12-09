@@ -16,8 +16,8 @@ also let you cache this chunk of HTML, but we'll talk about that another time.
 When we use ``render(controller('...'))``, this lets us execute a totally
 different controller. Let's render a new controller called ``_latestTweetsAction``
 in our same controller class. I put the underscore in front of the name just
-as a remidner to myself that the controller only returns a fragment of HTML,
-not a fully page.
+as a reminder to myself that the controller only returns a fragment of HTML,
+not a full page.
 
 In the controller, create the ``public function _latestTweetsAction``. I
 don't *really* want to bother with Twitter's API right this second, so I'll
@@ -66,7 +66,7 @@ A Disturbance in the Request
 ----------------------------
 
 Here is where things get crazy. Go back to ``UserAgentSubscriber``. Let's
-and am override so it's easier for us to play with this "is Mac" stuff, since
+add an override so it's easier for us to play with this "is Mac" stuff, since
 I'm pretty permanently using one.
 
 If there's a query parameter, called ``notMac``, that's set to some value
@@ -75,5 +75,5 @@ when I refresh, I'm still on a Mac. But if I add a ``?notMac=1`` to the URL,
 it goes away. The override correctly makes it look like I'm not on a Mac.
 
 Now scroll down. Woh! The sub request *still* thinks we're on a Mac. Something
-just short circuited in the system, and here's the issue. But before we fix
-it, let's dive one level deeper and see how sub-requests work.
+just short circuited in the system. But before we fix it, let's dive one
+level deeper and see how sub-requests really work.

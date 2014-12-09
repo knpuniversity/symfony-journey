@@ -34,7 +34,8 @@ key *is* being set. Later, our listener replaces it.
 But even if our listener were run before the router, our little hack would
 still work. That's because ``RouterListener`` has a special piece of code
 near the top that checks to see if the ``_controller`` key is already set.
-If it *is* set somehow, the routing actually runs. 
+If it *is* set somehow, the routing actually runs. That'll be important when
+we talk about sub-requests.
 
 And since our anonymous function is a valid controller, we can still use
 arguments on it just like normal. So if I go to ``/dinosaurs/22``, which

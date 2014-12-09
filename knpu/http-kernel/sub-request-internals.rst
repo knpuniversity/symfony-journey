@@ -3,27 +3,27 @@ How Sub-Requests Work
 
 To learn how sub request *really* work, let's leave this behind for a second
 and go back to ``DinosaurController::indexAction``. I'm going to create a
-sub request right here, by hand. To do that, just create a ``Request`` object
-by hand. Next, set the ``_controller`` key on its attributes. Set it to
+sub request right here, by hand. To do that, just create a ``Request`` object.
+Next, set the ``_controller`` key on its attributes. Set it to
 ``AppBundle:Dinosaur:latestTweets``. Then, I'm going to fetch the ``http_kernel``
 service. Yep, that's the same HttpKernel we've been talking about, and it
 lives right in the container.
 
 Now, let's call the familiar ``handle`` function on it: the exact same ``handle``
-function we studied before. Pass it the ``$request`` object as and a ``SUB_REQUEST``
-constant as a second argument. I'm going to talk about that part in a second.
+function we've been studying. Pass it the ``$request`` object and a ``SUB_REQUEST``
+constant as a second argument. I'm going to talk about that constant in a second.
 
 Let's think about this. We're *already* right in the middle of an ``HttpKernel::handle()``
 cycle for the main request. Now, we're starting another ``HttpKernel::handle()``
 cycle. And because I'm setting the ``_controller`` attribute it knows which
 controller to execute. That sub request is going to go through that whole
-process and ultimately call ``latestTweetsAction``. 
+process and ultimately call ``_latestTweetsAction``. 
 
 I'm not going to do anything with this ``Response`` object: I'm just trying
 to prove a point. If we refresh the browser and click into the Timeline,
 we now have *two* sub requests. One of them is the one I just created. If
-you scroll down you can see that. The other one is coming from render inside
-of our template.
+you scroll down you can see that. The other one is coming from the ``render()``
+call inside the template.
 
 Let's comment this silliness out. I wanted to show you this because that's
 *exactly* what happens inside ``base.html.twig`` when we use the ``render()``
@@ -32,14 +32,14 @@ key to whatever we have here, then passes it to ``HttpKernel::handle()``.
 
 Now we know why we're getting the weird ``isMac`` behavior in the sub request!
 The ``UserAgentSubscriber`` - in fact all listeners - are called on both
-requests. But the second time, the request object is **not** the *real* request
+requests. But the second time, the request object is **not** the *real* request.
 It's just some empty-ish Request object that has the ``_controller`` set
 on it. It doesn't, for example, have the same query parameters as the main
 request.
 
-That's why the first time ``UserAgentSubscriber`` runs, it reads the``?notMac=1``
-correctly. But the second time this is run for the sub request, there are
-no query parameters and the override fails.
+That's why the first time ``UserAgentSubscriber`` runs, it reads the ``?notMac=1``
+correctly. But the second time, when this is run for the sub request, there
+are *no* query parameters and the override fails.
 
 Properly Handling Sub-Request Data
 ----------------------------------
@@ -61,8 +61,8 @@ add an ``if`` statement and use an ``isMasterRequest()`` method on the event
 object. If this is *not* the master request, let's do nothing.
 
 And how does Symfony know if it's handling a master or sub-requests? That's
-because the second argument here. So when you call ``httpKernel::handle()``,
-it passes in a constant that says "hey this is a sub request, this is not
+because the second argument here. So when you call ``HttpKernel::handle()``,
+we pass in a constant that says "hey this is a sub request, this is not
 a master request". And then your listeners can behave differently if they
 need to.
 

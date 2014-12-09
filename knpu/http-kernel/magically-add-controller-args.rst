@@ -2,8 +2,8 @@ Making an Argument Available to All Controllers
 ===============================================
 
 Here's our next challenge: pretend that it's really important to know if
-the use is on a Mac or not. We're really wanting to start measuring how hipster
-our userbase is. In fact, it's *so* important, that we want to be able to
+the user is on a Mac or not. We're really wanting to start measuring how hipster
+our user base is. In fact, it's *so* important, that we want to be able to
 have an ``$isMac`` argument in *any* controller function *anywhere* in the
 system. This *won't* come from a routing wildcard like normal - we'll figure
 this out by reading the ``User-Agent``.
@@ -18,7 +18,7 @@ has no idea what to pass to the argument. And up until now that's been the
 rule: whatever we have in our routing curly brace is available as an argument
 and there are no exceptions to that rule, except for the Request object.
 
-But guys, that's not true! And we know it. We nkow that it's not *really*
+But guys, that's not true! And we know it. We know that it's not *really*
 about the routing layer. The arguments to the controller come from the request
 attributes. And sure, the only thing that normally modifies those is the
 routing layer. But there's nothing stopping someone else from adding some
@@ -37,24 +37,24 @@ Seriously, that's it. When we refresh, it works!
 
 And since I never trust when things work on the first try, let's change
 our code to look for ``mac2``. I'm on a mac, but the message hides since
-we changed that.
+we changed that. Go ahead and change that back
 
 So why is this important? Because understanding the core of Symfony is letting
 you do things that previously looked impossible. You're also going to be
 able to figure out how magic from outside libraries is working.
 
 For example look at the `SensioFrameworkExtraBundle`_. This is basically
-a bundle of shortcuts that work via magic. Now that you've journied to the
+a bundle of shortcuts that work via magic. Now that you've journeyed to the
 center of Symfony and back, if you look at each shortcut, you should be able
-to explain that magic behind each of these. 
+to explain the magic behind each of these. 
 
 The one I want to look at now is the ``ParamConverter``. In the example,
 you can see that the controller has a ``$post`` argument, but also that there's
 no ``{post}`` in the routing. So this *should* throw an error. The ``ParamConverter``,
-via a listener to ``kernel.request``, grabs the ``id`` off of the request
-attributes, queries for a ``Post`` object via Doctrine by that ``id``, and
-then adds a new request attribute called ``post`` that's set to that object.
-And just by doing that, the ``showAction`` can have that ``$post`` argument.
+which works via a listener to ``kernel.controller``, grabs the ``id`` off
+of the request attributes, queries for a ``Post`` object via Doctrine with
+that ``id``, and then adds a new request attribute called ``post`` that's
+set to that object. And just by doing that, the ``showAction`` can have that ``$post`` argument.
 
 If that makes any sense at all, you're on the verge of *really* mastering
 a big part of Symfony.
