@@ -31,7 +31,7 @@ chapters:
         is_free: true
         video_key: yp4xg4kvc2
     httpkernel-router-listener:
-        is_finished: false
+        video_key: 9bcr2cl9gl
     determine-the-controller:
         is_finished: false
     kernel.controller-and-getarguments:
