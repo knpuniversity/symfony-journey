@@ -134,7 +134,7 @@ routing in a lot of different ways: in YAML files, in annotations like in
 our app or other formats. But ultimately, if you run ``router:debug``, you'll
 get a list of all of the routes:
 
-.. code-block::
+.. code-block:: bash
 
     php app/console router:debug
 
