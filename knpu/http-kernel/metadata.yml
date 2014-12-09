@@ -46,3 +46,5 @@ chapters:
         is_finished: false
     sub-requests:
         is_finished: false
+    sub-internals:
+        is_finished: false
