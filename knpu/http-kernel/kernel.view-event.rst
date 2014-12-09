@@ -61,3 +61,5 @@ and there *is* one listener to ``kernel.view``, which comes from the SensioFrame
 that's not being executed.
 
 .. _`Lightweight Symfony2 Controllers`: http://www.whitewashing.de/2014/10/14/lightweight_symfony2_controllers.html
+.. _`FOSRestBundle`: https://github.com/FriendsOfSymfony/FOSRestBundle
+
