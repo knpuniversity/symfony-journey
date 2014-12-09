@@ -33,7 +33,7 @@ work? One *real* use-case is for APIs. Imagine the endpoints of your API
 need to be able to return both HTML or JSON depending on the ``Accept`` header
 sent by the client. In your controller, instead of having a big ``if`` statement
 for the two different formats, it just return the data. Then you'd have a
-listener on ``kernel.view`` first checks to see if the user wants HTML or
+listener on ``kernel.view`` that first checks to see if the user wants HTML or
 JSON. If the user wants HTML, it would render the template. If it wants JSON,
 it would take that Dinosaur object and turn it into JSON. The `FOSRestBundle`_
 has something that does exactly this: you can return data from your controller,

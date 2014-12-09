@@ -55,7 +55,7 @@ kernel.exception
 ----------------
 
 That's it guys - there's nothing more to see... unless something goes wrong.
-In the "No Called Listeners" list, there's one more important event: ``kernel.exception``.
+In the "Not Called Listeners" list, there's one more important event: ``kernel.exception``.
 Look back at the original ``handle()`` function that had the try-catch block.
 You can probably guess what's about to happen. If there *was* an exception,
 this calls ``handleException()``. This lives further below and - surpise!
@@ -64,7 +64,7 @@ It dispatches an event called ``kernel.exception``.
 The purpose of a listener to this event is to look at the exception object
 that was thrown, and somehow convert that to a Response. Because even if the
 servers are on fire, our user ultimately need a Response: they need to see
-a fully illustration showing that our servers are being eaten by gremlins.
+an illustration showing that our servers are being eaten by gremlins.
 *Some* listener needs to create that final response for us.
 
 And that's exactly what this code does. After dispatching the event, it checks
