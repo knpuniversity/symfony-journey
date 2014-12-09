@@ -1,7 +1,7 @@
 kernel.controller Event & Controller Arguments
 ==============================================
 
-Ok guys, what next? Hey, let's let's dispatch another event. This one is
+Ok guys, what next? Hey, let's dispatch another event. This one is
 called ``kernel.controller``. And like I keep promising, this one is passed
 a totally different event object called ``FilterControllerEvent``. Why would
 you listen to this event? Well, ``FilterControllerEvent`` has a ``getController()``
@@ -33,7 +33,7 @@ we have one argument: ``$id``. The route has ``{id}``, so this is ``$id``:
 we all know how those match by name. In fact, we're about to see how that
 works!
 
-So if I go to ``/dinosaurs/22``, you can see that the dumper ``$parameters``
+So if I go to ``/dinosaurs/22``, you can see that the dumped ``$parameters``
 has just one item in it, and in that ``ReflectionParameter`` object is a
 name with ``id``, since this is info about the ``$id`` argument.
 
@@ -45,7 +45,7 @@ function.
 Finding Values for Each Argument
 --------------------------------
 
-In ``doGetArguments9)``, the first thing it does is *so* important and *so*
+In ``doGetArguments()``, the first thing it does is *so* important and *so*
 geeky cool. It goes *back* to ``$request->attributes`` - that same thing
 that was populated by the routing. Let's dump this out quickly to remember
 what's in there. When we refresh, it has ``_controller`` and ``id`` from
@@ -55,8 +55,8 @@ aren't very important.
 Keep that array in mind. The ``doGetArguments()`` function iterates over
 ``$parameters``: the array of info about the arguments to our controller.
 And the first thing it does is check to see if the *name* of the parameter -
-like ``id`` - exists in the``$attributes`` array. And if it does, it uses
-that value as an argument.
+like ``id`` - exists in the ``$attributes`` array. And if it does, it uses
+that value for the argument.
 
 This is exactly why if we have a ``{id}`` inside our route, its value is
 passed to a ``$id`` argument in the controller. This is *why* and how that
@@ -100,7 +100,7 @@ If we get rid of that, it should pass the request to one argument and it should
 be ok with ``$foo`` being optional. When we refresh, it's happy!
 
 Now that we're done, the array of argument values is passed all the way back
-to ``HttpKernel``. And no we're dangerous: we have the controller callable
+to ``HttpKernel``. And now we're dangerous: we have the controller callable
 *and* the arguments to pass to it.
 
 Executing the Controller

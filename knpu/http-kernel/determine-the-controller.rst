@@ -27,7 +27,7 @@ doesn't care if that's an anonymous function or whether a method inside of
 an object. A lot of the code you'll see here is to support this very important
 fact.
 
-Ok, this cool! Shat's the first thing this function does? It goes out to
+Ok, this cool! What's the first thing this function does? It goes out to
 the ``request->attributes`` and looks for that ``_controller`` key. Ah, hah!
 So why do we use ``_controller`` in our Yaml routes? And why do annotation
 routes create a route with ``_controller`` behind the scenes? Simply because,
@@ -50,15 +50,16 @@ is callable if you can invoke it via the ``call_user_func`` function.
 
 But in other circumstances, the controller might already be callable. Silex
 is a *perfect* example! There, your controllers are anonymous functions, and
-behind the scenes, the the function is set on the ``_controller`` key of
-the route. So for Silex, this function would exit earlier in this process.
+behind the scenes, the function is set on the ``_controller`` key of
+the route. So for Silex, ``_controller`` *is* callable, and so it would exit
+earlier in this process.
 
 Transforming _controller into a Callable
 ----------------------------------------
 
 But in the Symfony Framework, we don't exit early. Instead, we fall down
 into the ``createController`` function. This is overridden in the child
-``ControllerResolver``, so switch to the one that's in the ``FrameworkBundlle``.
+``ControllerResolver``, so switch to the one that's in the ``FrameworkBundle``.
 And there's our function!
 
 Ah, this is awesome again! Look at the first part: it looks to see if your
@@ -86,7 +87,7 @@ Next, this splits those on the ``::`` and the strange ``list()`` function
 sets the first part to a variable called ``$class`` and everything after
 the ``::`` to a variable called ``$method``. I'll dump those variables to
 be totally clear - the ``list()`` function has confused me in the past, and
-the *real* key is what these two new varaibles are set to.
+the *real* key is what these two new variables are set to.
 
 At this point, it's time to see if we've messed up! Maybe this class doesn't
 exist - maybe there's a typo somewhere. It gives us a nice error message
@@ -105,7 +106,7 @@ every day in Symfony. It says: if your controller object implements the
 So if I open up ``DinosaurController`` and click to open Symfony's base
 ``Controller``,  you'll see that it extends a ``ContainerAware`` class. Let's
 click to open that. And we see that *it* implements the ``ContainerAwareInterface``.
-So if our controller extends Symfony's base ``Controller``, we automtically
+So if our controller extends Symfony's base ``Controller``, we automatically
 implement that interface. Because of that, the ``ControllerResolver`` *does*
 call ``setContainer`` on our controller class, which is this function here.
 And what does it do? It sets that on a protected ``$container`` property.
