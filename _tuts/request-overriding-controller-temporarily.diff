@@ -1,11 +1,11 @@
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index f1578ce..83b6150 100644
+index ab7d82f..c784715 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -22,6 +22,10 @@ class UserAgentSubscriber implements EventSubscriberInterface
-         $userAgent = $request->headers->get('User-Agent');
- 
-         $this->logger->info('Hello there browser: '.$userAgent);
+@@ -28,6 +28,10 @@ class UserAgentSubscriber implements EventSubscriberInterface
+             $response = new Response('Come back later');
+             //$event->setResponse($response);
+         }
 +
 +        $request->attributes->set('_controller', function($id) {
 +            return new Response('Hello '.$id);

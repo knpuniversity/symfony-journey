@@ -1,0 +1,13 @@
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index 750a9ac..ab7d82f 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -26,7 +26,7 @@ class UserAgentSubscriber implements EventSubscriberInterface
+ 
+         if (rand(0, 100) > 50) {
+             $response = new Response('Come back later');
+-            $event->setResponse($response);
++            //$event->setResponse($response);
+         }
+     }
+ 

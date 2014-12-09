@@ -1,0 +1,24 @@
+diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
+index f1578ce..750a9ac 100644
+--- a/src/AppBundle/EventListener/UserAgentSubscriber.php
++++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
+@@ -4,6 +4,7 @@ namespace AppBundle\EventListener;
+ 
+ use Psr\Log\LoggerInterface;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
++use Symfony\Component\HttpFoundation\Response;
+ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+ use Symfony\Component\HttpKernel\KernelEvents;
+ 
+@@ -22,6 +23,11 @@ class UserAgentSubscriber implements EventSubscriberInterface
+         $userAgent = $request->headers->get('User-Agent');
+ 
+         $this->logger->info('Hello there browser: '.$userAgent);
++
++        if (rand(0, 100) > 50) {
++            $response = new Response('Come back later');
++            $event->setResponse($response);
++        }
+     }
+ 
+     public static function getSubscribedEvents()

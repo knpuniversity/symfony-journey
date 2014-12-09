@@ -56,6 +56,16 @@
             "description": null
         },
         {
+            "id": "request-set-the-response-from-the-listener",
+            "name": "Request: Set the response from the listener",
+            "description": null
+        },
+        {
+            "id": "request-comment-out-setresponse-in-listener",
+            "name": "Request: Comment out setResponse in listener",
+            "description": null
+        },
+        {
             "id": "request-overriding-controller-temporarily",
             "name": "Request: Overriding _controller temporarily",
             "description": null
@@ -91,5 +101,5 @@
             "description": null
         }
     ],
-    "sha": "d0fa9e69bd0ee7f0708299917c1c74f24da70cf3"
+    "sha": "4bf9425ed7aa6a45b4c28000ad2d6683e4256ab5"
 }

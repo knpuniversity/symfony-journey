@@ -34,12 +34,12 @@ index bc4a8d9..3f9105e 100644
      }
  
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 83b6150..4fa9f0a 100644
+index c784715..d1442ec 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -23,9 +23,14 @@ class UserAgentSubscriber implements EventSubscriberInterface
- 
-         $this->logger->info('Hello there browser: '.$userAgent);
+@@ -29,9 +29,14 @@ class UserAgentSubscriber implements EventSubscriberInterface
+             //$event->setResponse($response);
+         }
  
 +        $isMac = stripos($userAgent, 'Mac') !== false;
 +        $request->attributes->set('isMac', $isMac);

@@ -40,11 +40,11 @@ index 028c488..ddb793c 100644
 \ No newline at end of file
 +}
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
-index 4fa9f0a..c48dad7 100644
+index d1442ec..c5931ca 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php
 +++ b/src/AppBundle/EventListener/UserAgentSubscriber.php
-@@ -24,6 +24,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
-         $this->logger->info('Hello there browser: '.$userAgent);
+@@ -30,6 +30,9 @@ class UserAgentSubscriber implements EventSubscriberInterface
+         }
  
          $isMac = stripos($userAgent, 'Mac') !== false;
 +        if ($request->query->get('notMac')) {
