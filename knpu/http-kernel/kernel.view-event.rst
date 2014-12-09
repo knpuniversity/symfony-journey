@@ -1,54 +1,63 @@
 The kernel.view Event
 =====================
 
-We're now *really* close to being done with the request-response flow. We've
-seen the kernel.request event, which ran the router. We saw the ControllerResolver
-instantiate our controller object, and we also saw how this getArguments
-method iterates over the arguments in our controller and matches them up
-with the what came back from the router.
+We've journeyed far, brave traveler. And now that Symfony has called our
+controller, let's start our adventure home.
 
-Our controller is returning a Response object. We're calling the ``render()``
-function and that's a shortcut to render the template and put it inside of
-a Response object. But in reality, you don't *have* to return a Response
-from your controller: you can return whatever you want. If you don't return
-a response, what does Symfony do? It dispatches another event. This time
-it's called ``kernel.view``. And the purpose of listeners to this event is
-to save Symfony. Symfony *needs* a Response object, and if the controller
-didn't give it to us, it's going to call all of the listeners to this event
-and say: "Hey, here's what the controller *did* return, can you somehow
-transform this into a real response."
+*Our* controller is returning a Response object. We're calling ``render()``
+and that's a shortcut that renders the template and put it inside of a Response
+object.
 
-Why would you do this? In a true MVC framework, the controller is supposed
-to not return a response, but instead just return some data. Imagine if
-our DinosaurController::showAction didn't return a Response, it just returned
-a Dinosaur object. And *then*, what if we had a listener on this event that
-was capable of seeing that Dinosaur object, and rendering the template and
-creating the Response for us. In that case, we're splitting the fetching
-and preparation of the data and the creation of a representation of that
-data into two pieces. Why would you do this? One potential use-case is if
-you have a REST API where every URI needs to be able to return both an HTML
-response and a JSON response based on an ``Accept`` header the client sends.
-In your controller, instead of having an ``if`` statement that tries to see
-which version we need, your controller would just return the data. Then you'd
-have a listener on this event that's smart enough to see that the user wants
-HTML or the user wants JSON. If the user wants HTML, it would render the
-template. If it wants JSON, it would take that Dinosaur object and turn it
-into JSON. The FOSRestBundle has something that does exactly this: you can
-just return some data from your controller, and it has a listener on the
-``kernel.view`` event that transforms that data into whatever response is
-appropriate.
+And even though I love to say that the one job of your controller is to create
+and return a response, it's a lie! You can return whatever you want from
+a controller.
 
-In normal Symfony, there's nothing important that listens to this. But when
-it's called, it's hoping that one of those listeners will be able to set the
-response on the ``$event`` object. And ultimately, if we *still* don't have
-a Response, *that's* when you get the error that the controller must return
-a Response. And one of my favorite parts of the code is here. It checks to
-see if the ``$response`` is actually null, and it says "Hey, *maybe* you
-forgot to add a return statement somewhere in your controller?" You've probably
-seen that message a couple of times.
+And if you don't return a response, what does Symfony do? It dispatches another
+event. This time it's called ``kernel.view``. The purpose of a listener
+to this event is to save Symfony. It really *needs* a Response object, and
+if the controller didn't give it to us, it calls each listener to this event
+and says: "Hey, here's what the controller *did* return, can you somehow
+transform this into a real response and save the day?"
 
-In our case, since the controller *is* returning a Response, if we go back
-and look at the events tab, we'll see that there's no ``kernel.view`` in
-the list at the top. But below there's a "Not Called Listeners" section,
+Ok, but what's the use-case for this? In a true MVC framework, the controller
+is supposed to just return some data, not a response. For example, imagine
+if our DinosaurController::showAction just returned a Dinosaur object instead
+of the HTML response. And *then*, imagine we added a listener on this event
+that saw that Dinosaur object, rendered the template and created the Response
+for us. The result would be the same, but we'd be splitting things into two
+pieces. The fetching and preparation of the data would happen in the controller.
+The creation of a representation of that data would happen in the listener.
+
+To some of you, this might sound ridiculous. I mean, why do all this extra
+work? One *real* use-case is for APIs. Imagine the endpoints of your API
+need to be able to return both HTML or JSON depending on the ``Accept`` header
+sent by the client. In your controller, instead of having a big ``if`` statement
+for the two different formats, it just return the data. Then you'd have a
+listener on ``kernel.view`` first checks to see if the user wants HTML or
+JSON. If the user wants HTML, it would render the template. If it wants JSON,
+it would take that Dinosaur object and turn it into JSON. The `FOSRestBundle`_
+has something that does exactly this: you can return data from your controller,
+and it has a listener on the ``kernel.view`` event that transforms that data
+into whatever response is asked for.
+
+.. tip::
+
+    If you register controllers as services, there's an additional use-case
+    for this. See `Lightweight Symfony2 Controllers`_.
+
+In normal Symfony, there's nothing important that listens to this event. But
+when it's dispatched, it's hoping that one of those listeners will be able
+to set the response on the ``$event`` object. If we *still* don't have a
+``Response``, *that's* when you get the error that the controller must return
+a ``Response``. Oh, and this is one of my favorite parts of the code: if
+the ``$response`` is actually null, and it says "Hey, *maybe* you forgot
+to add a return statement somewhere in your controller?" Yep, I've seen that
+error a few times in my days.
+
+Since *our* controller *is* returning a Response, if we go back and look
+at the events tab in the profiler, we'll see that there's no ``kernel.view``
+in the list at the top. But below there's a "Not Called Listeners" section,
 and there *is* one listener to ``kernel.view``, which comes from the SensioFrameworkExtraBundle,
 that's not being executed.
+
+.. _`Lightweight Symfony2 Controllers`: http://www.whitewashing.de/2014/10/14/lightweight_symfony2_controllers.html
