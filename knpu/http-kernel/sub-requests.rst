@@ -40,12 +40,12 @@ all the normal stuff, kernel.request and if we scroll down here we can see our
 controller being run and our template being run but you notice this darker bar 
 behind this. If you scroll down you'll see this second request, called a sub 
 request. And this is a sub request that is executing the latesttweetsAction and
-what you'll see that is important here is it actually is like a totally seperate
+what you'll see that is important here is it actually is like a totally separate
 request, it goes through all the same process it executes the kernel.request 
 listeners you can see all the same listeners as before. It has the kernel.controller
 event, it ultimately calls that controller. We need to call the Twig template,
 it has kernel.response on the end. So it really is like we are handling two
-totally seperate request response cycles.
+totally separate request response cycles.
 
 You can even if you want to click in to see the profiler just for this one sub
 request, which is a really powerful thing to do. So now, remember back in our user
@@ -56,7 +56,7 @@ pass this into our template. We can print it out just to make sure this is
 working. 
 
 We'll just print out a simple message, when we go back and refresh we see that 
-on the top here we are on a Mac and on the bottom here, we are on a mac. Exaclty
+on the top here we are on a Mac and on the bottom here, we are on a mac. Exactly
 what we would expect. Here is where things get kinda crazy. I'm going to go back
 to user agent subscriber and I'm going to add a little override so it's a little
 easier for us to play with this ismac not a mac, since I am on one. What I'm going
@@ -109,7 +109,7 @@ from render inside of our template. I did this, not because it's useful because
  So this is a really tricky thing. We went through the trouble of doing this because 
  when you have a sub request you need to not rely on the information from that
  request. It's not the real request, you need to not read headers or query parameters
- off of it becuase it's not exactly the request that you expect. Internally in 
+ off of it because it's not exactly the request that you expect. Internally in 
  Symfony what it does it it duplicates the main request, so some information
  remains and some doesn't. That's why the headers on the main request get copied
  to the sub requests, which is why the user agent still looks like a Mac. But the
