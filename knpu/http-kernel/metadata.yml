@@ -37,9 +37,9 @@ chapters:
     kernel.controller-and-getarguments:
         is_finished: false
     kernel.view-event:
-        is_finished: false
+        video: 5h3gk1ayma
     httpkernel-handle-finishing-up:
-        is_finished: false
+        video: ih2xwwgar3
     magically-replace-_controller:
         is_finished: false
     magically-add-controller-args:
