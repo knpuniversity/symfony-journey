@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
-index 9b5919e..a84e73c 100644
+index 75fee6c..4e7b269 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
 +++ b/src/AppBundle/Controller/DinosaurController.php
-@@ -17,6 +17,7 @@ class DinosaurController extends Controller
+@@ -19,6 +19,7 @@ class DinosaurController extends Controller
              ->getRepository('AppBundle:Dinosaur')
              ->findAll();
  
@@ -10,7 +10,7 @@ index 9b5919e..a84e73c 100644
          $request = new Request();
          $request->attributes->set(
              '_controller',
-@@ -27,6 +28,7 @@ class DinosaurController extends Controller
+@@ -29,6 +30,7 @@ class DinosaurController extends Controller
              $request,
              HttpKernelInterface::SUB_REQUEST
          );

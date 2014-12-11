@@ -1,8 +1,17 @@
 diff --git a/src/AppBundle/Controller/DinosaurController.php b/src/AppBundle/Controller/DinosaurController.php
-index ddb793c..9b5919e 100644
+index ddb793c..75fee6c 100644
 --- a/src/AppBundle/Controller/DinosaurController.php
 +++ b/src/AppBundle/Controller/DinosaurController.php
-@@ -17,6 +17,17 @@ class DinosaurController extends Controller
+@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
+ use AppBundle\Entity\Dinosaur;
+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+ use Symfony\Component\Routing\Annotation\Route;
++use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpKernel\HttpKernelInterface;
+ 
+ class DinosaurController extends Controller
+ {
+@@ -17,6 +19,17 @@ class DinosaurController extends Controller
              ->getRepository('AppBundle:Dinosaur')
              ->findAll();
  
