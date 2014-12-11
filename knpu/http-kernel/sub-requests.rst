@@ -15,7 +15,7 @@ also let you cache this chunk of HTML, but we'll talk about that another time.
 
 When we use ``render(controller('...'))``, this lets us execute a totally
 different controller. Let's render a new controller called ``_latestTweetsAction``
-in our same controller class::
+in our same controller class:
 
 .. code-block:: html+jinja
 
