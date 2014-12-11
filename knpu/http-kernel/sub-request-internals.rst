@@ -5,13 +5,51 @@ To learn how sub request *really* work, let's leave this behind for a second
 and go back to ``DinosaurController::indexAction``. I'm going to create a
 sub request right here, by hand. To do that, just create a ``Request`` object.
 Next, set the ``_controller`` key on its attributes. Set it to
-``AppBundle:Dinosaur:latestTweets``. Then, I'm going to fetch the ``http_kernel``
-service. Yep, that's the same HttpKernel we've been talking about, and it
-lives right in the container.
+``AppBundle:Dinosaur:latestTweets``::
+
+    // AppBundle/Controller/DinosaurController.php
+    // ...
+
+    public function indexAction($isMac)
+    {
+        // ...
+
+        $request = new Request();
+        $request->attributes->set(
+            '_controller',
+            'AppBundle:Dinosaur:_latestTweets'
+        );
+
+        // ...
+    }
+
+Then, I'm going to fetch the ``http_kernel`` service. Yep, that's the same
+HttpKernel we've been talking about, and it lives right in the container.
 
 Now, let's call the familiar ``handle`` function on it: the exact same ``handle``
 function we've been studying. Pass it the ``$request`` object and a ``SUB_REQUEST``
-constant as a second argument. I'm going to talk about that constant in a second.
+constant as a second argument. I'm going to talk about that constant in a second::
+
+    // AppBundle/Controller/DinosaurController.php
+    // ...
+
+    public function indexAction($isMac)
+    {
+        // ...
+
+        $request = new Request();
+        $request->attributes->set(
+            '_controller',
+            'AppBundle:Dinosaur:_latestTweets'
+        );
+        $httpKernel = $this->container->get('http_kernel');
+        $response = $httpKernel->handle(
+            $request,
+            HttpKernelInterface::SUB_REQUEST
+        );
+
+        // ...
+    }
 
 Let's think about this. We're *already* right in the middle of an ``HttpKernel::handle()``
 cycle for the main request. Now, we're starting another ``HttpKernel::handle()``
@@ -29,6 +67,9 @@ Let's comment this silliness out. I wanted to show you this because that's
 *exactly* what happens inside ``base.html.twig`` when we use the ``render()``
 function. It creates a brand new request object, sets the ``_controller``
 key to whatever we have here, then passes it to ``HttpKernel::handle()``.
+
+Sub-Requests have a Different Request Object
+--------------------------------------------
 
 Now we know why we're getting the weird ``isMac`` behavior in the sub request!
 The ``UserAgentSubscriber`` - in fact all listeners - are called on both
@@ -58,7 +99,19 @@ what's called the "master" request.
 This means that our ``UserAgentSubscriber`` can only do its job properly
 for the master request. On a sub-request, it shouldn't do anything. So let's
 add an ``if`` statement and use an ``isMasterRequest()`` method on the event
-object. If this is *not* the master request, let's do nothing.
+object. If this is *not* the master request, let's do nothing::
+
+    // src/AppBundle/EventListener/UserAgentSubscriber.php
+    // ...
+
+    public function onKernelRequest(GetResponseEvent $event)
+    {
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+        // ...
+
+    }
 
 And how does Symfony know if it's handling a master or sub-requests? That's
 because the second argument here. So when you call ``HttpKernel::handle()``,
@@ -71,6 +124,9 @@ doesn't run on the sub-request, so ``isMac`` is missing from the request
 attributes. And because of that, we can no longer have an ``$isMac`` controller
 argument.
 
+Passing Information to a Sub-Request Controller
+-----------------------------------------------
+
 But wait! I *do* want to know if the user is on a Mac from my sub request.
 What's the solution?
 
@@ -79,8 +135,32 @@ to the ``controller()`` function is an array of items that you want to make
 available as arguments to the controller. Behind the scenes, these are put
 onto the attributes of the sub request. So we can add a ``userOnMac`` key
 and set its value to the *true* ``isMac`` attribute stored on the master
-request. So, ``app.request.attributes.get('isMac')``. Inside of the controller,
-add a ``userOnMac`` variable and pass it into the template.
+request. So, ``app.request.attributes.get('isMac')``:
+
+.. code-block:: html+jinja
+
+    {# app/Resources/views/base.html.twig #}
+    {# ... #}
+
+    {{ render(controller('AppBundle:Dinosaur:_latestTweets', {
+        'userOnMac': app.request.attributes.get('isMac')
+    })) }}
+
+Inside of the controller, add a ``userOnMac`` variable and pass it into the
+template::
+
+    // src/AppBundle/Controller/DinosaurController.php
+    // ...
+
+    public function _latestTweetsAction($userOnMac)
+    {
+        // ...
+
+        return $this->render('dinosaurs/_latestTweets.html.twig', [
+            'tweets' => $tweets,
+            'isMac' => $userOnMac
+        ]);
+    }
 
 Now when we refresh, we still have the ``?notMac=1``, so the Mac message
 is missing from the master request part at the top. And if we scroll down,
@@ -95,3 +175,5 @@ like query parameters from the URL, from inside a sub-request. This also
 ties into Http caching and ESI which are topics we'll cover later. If we
 follow this rule and you *do* want to cache this latest tweets fragment,
 it's going to be super easy.
+
+Seeya next time!
