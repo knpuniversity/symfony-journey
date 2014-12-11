@@ -33,7 +33,7 @@ chapters:
     httpkernel-router-listener:
         video_key: 9bcr2cl9gl
     determine-the-controller:
-        is_finished: false
+        video_key: e8z857hdpd
     kernel.controller-and-getarguments:
         video_key: vcj1181ee4
     kernel.view-event:
