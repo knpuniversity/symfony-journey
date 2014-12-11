@@ -140,4 +140,5 @@ the ``_controller``, the routes stuff and the ``isMac`` key. By the way,
 not that it's necessarily useful, but the fact that there is an ``_route``
 key *does* mean that you can have a ``$_route`` argument to any controller.
 
+.. _`SensioFrameworkExtraBundle`: http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
 .. _`ParamConverter`: http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/converters.html

@@ -169,7 +169,7 @@ what's in there::
         // ...
     }
 
-When we refresh, it has ``_controller`` and ``id`` from the routing wildcard::
+When we refresh, it has ``_controller`` and ``id`` from the routing wildcard:
 
 .. code-block:: text
 
