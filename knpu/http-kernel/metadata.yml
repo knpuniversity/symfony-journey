@@ -35,11 +35,11 @@ chapters:
     determine-the-controller:
         is_finished: false
     kernel.controller-and-getarguments:
-        is_finished: false
+        video_key: vcj1181ee4
     kernel.view-event:
-        video: 5h3gk1ayma
+        video_key: 5h3gk1ayma
     httpkernel-handle-finishing-up:
-        video: ih2xwwgar3
+        video_key: ih2xwwgar3
     magically-replace-_controller:
         is_finished: false
     magically-add-controller-args:
