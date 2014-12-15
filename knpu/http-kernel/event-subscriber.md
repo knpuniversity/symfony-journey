@@ -104,8 +104,7 @@ to know that there's a new `UserEventSubscriber` that wants to listen on
 the `kernel.request` event, we're going to need to register this as a
 service.
 
-Registering the Subscriber/Listener
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Registering the Subscriber/Listener
 
 So I'm going to go into `app/config/services.yml` and clear the comments
 out. And we'll give it a short, but descriptive name - `user_agent_subscriber`,
