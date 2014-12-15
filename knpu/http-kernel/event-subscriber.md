@@ -86,7 +86,7 @@ where you configure *which* events you want to listen to.
 I'm going to create a subscriber here because it's a little more flexible.
 So `UserAgentSubscriber` needs to implement `EventSubscriberInterface`::
 
-[[[ code('ae026f4ac0) ]]]
+[[[ code('ae026f4ac0') ]]]
 
 Notice that it added the `use` statement up there. And we're going to need
 to implement 1 method which is `getSubscribedEvents`. What this is going
@@ -96,7 +96,7 @@ or what it does yet - but when that event happens, I want Symfony to call
 this  `onKernelRequest` function, which we're going to put inside of this
 class. For now, let's just put a `die('it works');`::
 
-[[[ code('10d76c8e37) ]]]
+[[[ code('10d76c8e37') ]]]
 
 Cool! The event subscriber is ready to go. No, Symfony doesn't automatically
 know this class is here or automatically scan the codebase. So to get Symfony
@@ -114,7 +114,7 @@ arguments yet, so I'll just put an empty array. Now in order for Symfony
 to know this is an event subscriber, we'll use something called a tag, and
 set its name to `kernel.event_subscriber`:
 
-[[[ code('9333b8eb42) ]]]
+[[[ code('9333b8eb42') ]]]
 
 Now, that tag is called a `dependency injection tag`_, which is really awesome,
 really advanced and really fun to work with inside of Symfony. And we're
