@@ -34,46 +34,12 @@ request and response are the route and controller. In this case, you can see
 our homepage has a route, our function is a controller, and our controller
 returns a Response object::
 
-    // src/AppBundle/Controller/DinosaurController.php
-    // ...
-
-    /**
-     * @Route("/", name="dinosaur_list")
-     */
-    public function indexAction()
-    {
-        $dinos = $this->getDoctrine()
-            ->getRepository('AppBundle:Dinosaur')
-            ->findAll();
-
-        return $this->render('dinosaurs/index.html.twig', [
-            'dinos' => $dinos,
-        ]);
-    }
+[[[ code('fbfd816c5a') ]]]
 
 And we have the same thing down here with the other page: it has a route,
 a controller, and that returns a response::
 
-    // src/AppBundle/Controller/DinosaurController.php
-    // ...
-
-    /**
-     * @Route("/dinosaurs/{id}", name="dinosaur_show")
-     */
-    public function showAction($id)
-    {
-        $dino = $this->getDoctrine()
-            ->getRepository('AppBundle:Dinosaur')
-            ->find($id);
-
-        if (!$dino) {
-            throw $this->createNotFoundException('That dino is extinct!');
-        }
-
-        return $this->render('dinosaurs/show.html.twig', [
-            'dino' => $dino,
-        ]);
-    }
+[[[ code('3620ccdfd2') ]]]
 
 So what we're going to look at is *how* that all works. Who actually runs
 the router? Who calls the controller? How do events work in between the
@@ -111,13 +77,7 @@ I'll create a new directory called `EventListener` and a new class. Inside
 this event listener, we're going to read the `User-Agent` header off the
 request and do some things with that. So I'll call this `UserAgentSubscriber`::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-
-    namespace AppBundle\EventListener;
-
-    class UserAgentSubscriber
-    {
-    }
+[[[ code('dcd58262ba') ]]]
 
 If you want to hook into Symfony, there are 2 ways to do it: with a listener
 or a subscriber. They're actually exactly the same, the only difference is
@@ -126,14 +86,7 @@ where you configure *which* events you want to listen to.
 I'm going to create a subscriber here because it's a little more flexible.
 So `UserAgentSubscriber` needs to implement `EventSubscriberInterface`::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    namespace AppBundle\EventListener;
-
-    use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-    class UserAgentSubscriber implements EventSubscriberInterface
-    {
-    }
+[[[ code('ae026f4ac0) ]]]
 
 Notice that it added the `use` statement up there. And we're going to need
 to implement 1 method which is `getSubscribedEvents`. What this is going
@@ -143,23 +96,7 @@ or what it does yet - but when that event happens, I want Symfony to call
 this  `onKernelRequest` function, which we're going to put inside of this
 class. For now, let's just put a `die('it works');`::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    // ...
-
-    class UserAgentSubscriber implements EventSubscriberInterface
-    {
-        public function onKernelRequest()
-        {
-            die('it works');
-        }
-
-        public static function getSubscribedEvents()
-        {
-            return array(
-                'kernel.request' => 'onKernelRequest'
-            );
-        }
-    }
+[[[ code('10d76c8e37) ]]]
 
 Cool! The event subscriber is ready to go. No, Symfony doesn't automatically
 know this class is here or automatically scan the codebase. So to get Symfony
@@ -177,16 +114,7 @@ arguments yet, so I'll just put an empty array. Now in order for Symfony
 to know this is an event subscriber, we'll use something called a tag, and
 set its name to `kernel.event_subscriber`:
 
-.. code-block:: yaml
-
-    # app/config/services.yml
-    # ...
-
-    services:
-        user_agent_subscriber:
-            class: AppBundle\EventListener\UserAgentSubscriber
-            tags:
-                - { name: kernel.event_subscriber }
+[[[ code('9333b8eb42) ]]]
 
 Now, that tag is called a `dependency injection tag`_, which is really awesome,
 really advanced and really fun to work with inside of Symfony. And we're
@@ -203,47 +131,16 @@ to log a message. I'm going to need the logger so I'll add a constructor
 and even type hint the argument with the PSR LoggerInterface. And I'll use
 a little PHPStorm shortcut to create and set that property for me::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    // ...
-
-    use Psr\Log\LoggerInterface;
-
-    class UserAgentSubscriber implements EventSubscriberInterface
-    {
-        private $logger;
-
-        public function __construct(LoggerInterface $logger)
-        {
-            $this->logger = $logger;
-        }
-
-        // ...
-    }
+[[[ code('08a7f1d61d') ]]]
 
 Now in our function, we'll log a very important message::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    // ...
-
-    public function onKernelRequest()
-    {
-        $this->logger->info('Yea, it totally works!');
-    }
+[[[ code('4dc80beb3a') ]]]
 
 And of course this isn't going to work unless we go back to `services.yml`
 and tell Symfony: Hey, we need the `@logger` service:
 
-.. code-block:: yaml
-
-    # app/config/config.yml
-    # ...
-
-    services:
-        user_agent_subscriber:
-            class: AppBundle\EventListener\UserAgentSubscriber
-            arguments: ["@logger"]
-            tags:
-                - { name: kernel.event_subscriber }
+[[[ code('8aeecd219d') ]]]
 
 Cool!
 
@@ -268,13 +165,7 @@ event you listen to is going to pass you a different type of event object.
 
 But no worries! I'm going to use the new `dump()` function from Symfony 2.6::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    // ...
-
-    public function onKernelRequest($event)
-    {
-        dump($event);
-    }
+[[[ code('6771a6bda5') ]]]
 
 Let's go back a few pages, refresh, and the dump function prints that out
 right in the web debug toolbar. And we can see it's dumping a `GetResponseEvent`
@@ -285,14 +176,7 @@ methods and different information on it.
 Let's type-hint the argument. Notice I'm using PHPStorm, so that added a
 nice `use` statement to the top - don't forget that::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    // ...
-    use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-
-    public function onKernelRequest(GetResponseEvent $event)
-    {
-        dump($event);
-    }
+[[[ code('ef91188a95') ]]]
 
 What I want to do is get the `User-Agent` header and print that out in a
 log message. Fortunately, this `getResponseEvent` object gives us access
@@ -302,16 +186,7 @@ and information on it. It just *happens* to be that this one has a `getRequest`
 method, which is really handy for what we want to do. Now I'll just read
 the `User-Agent` off of the headers, and log a message::
 
-    // src/AppBundle/EventListener/UserAgentSubscriber.php
-    // ...
-
-    public function onKernelRequest(GetResponseEvent $event)
-    {
-        $request = $event->getRequest();
-        $userAgent = $request->headers->get('User-Agent');
-
-        $this->logger->info('Hello there browser: '.$userAgent);
-    }
+[[[ code('349cebef33') ]]]
 
 Let's try it! I'll get back into the profiler, then to the Logs... and it's
 working perfectly.
