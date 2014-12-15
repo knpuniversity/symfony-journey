@@ -116,7 +116,7 @@ set its name to `kernel.event_subscriber`:
 
 [[[ code('9333b8eb42') ]]]
 
-Now, that tag is called a `dependency injection tag`_, which is really awesome,
+Now, that tag is called a [dependency injection tag][DITags], which is really awesome,
 really advanced and really fun to work with inside of Symfony. And we're
 going to talk about it in a different part of this series. With just this
 configuration, Symfony will boot, it'll know about our subscriber, and when
@@ -195,4 +195,4 @@ Even if we don't understand everything that's happening between the request
 and response, we already know that there are these listeners that happen.
 But next, we're going to walk through the code that handles *all* of this.
 
-.. _`dependency injection tag`: http://symfony.com/doc/current/reference/dic_tags.html
+[DITags]: http://symfony.com/doc/current/reference/dic_tags.html
