@@ -23,7 +23,7 @@ As an example, I'm going to put ``$isMac`` into ``indexAction``::
         ]);
     }
 
-We'll pass that into our template, and inside there, use it to print our a
+We'll pass that into our template, and inside there, use it to print out a
 threatening message if the user is on a Mac:
 
 ..  code-block:: html+jinja
