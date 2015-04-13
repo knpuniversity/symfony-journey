@@ -1,0 +1,15 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 7471c23..90e1d41 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -7,4 +7,9 @@ use Monolog\Logger;
+ require __DIR__.'/../vendor/autoload.php';
+ 
+ $logger = new Logger('main');
+-$logger->info('ROOOOAR');
++runApp($logger);
++
++function runApp(Logger $logger)
++{
++    $logger->info('ROOOOAR');
++}

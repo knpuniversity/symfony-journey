@@ -99,7 +99,42 @@
             "id": "sub-request-properly-pass-the-variable",
             "name": "Sub-Request Properly pass the variable",
             "description": null
+        },
+        {
+            "id": "di-basic-logger",
+            "name": "DI: Basic logger",
+            "description": null
+        },
+        {
+            "id": "di-wrap-in-a-runapp-function",
+            "name": "DI: Wrap in a runApp function",
+            "description": null
+        },
+        {
+            "id": "container-create-the-containerbuilder",
+            "name": "Container: Create the ContainerBuilder",
+            "description": null
+        },
+        {
+            "id": "container-basic-handler-creation",
+            "name": "Container: Basic Handler creation",
+            "description": null
+        },
+        {
+            "id": "container-handler-inside-the-container",
+            "name": "Container: Handler inside the container",
+            "description": null
+        },
+        {
+            "id": "containerbuilder-add-logger-definition",
+            "name": "ContainerBuilder: Add logger definition",
+            "description": null
+        },
+        {
+            "id": "containerbuilder-add-handler-definition",
+            "name": "ContainerBuilder: Add handler definition",
+            "description": null
         }
     ],
-    "sha": "1b03a04deb284d77c8200817b70b705032c058b3"
+    "sha": "402e14c532f132309ef8b5739b46440ae1790172"
 }

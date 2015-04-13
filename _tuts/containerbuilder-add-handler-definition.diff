@@ -1,0 +1,33 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 036eb42..104ebcf 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -2,7 +2,6 @@
+ 
+ namespace Dino\Play;
+ 
+-use Monolog\Handler\StreamHandler;
+ use Symfony\Component\DependencyInjection\ContainerBuilder;
+ use Symfony\Component\DependencyInjection\Definition;
+ use Symfony\Component\DependencyInjection\Reference;
+@@ -11,9 +10,6 @@ require __DIR__.'/../vendor/autoload.php';
+ 
+ $container = new ContainerBuilder();
+ 
+-$handler = new StreamHandler(__DIR__.'/dino.log');
+-$container->set('logger.stream_handler', $handler);
+-
+ $loggerDefinition = new Definition('Monolog\Logger');
+ $loggerDefinition->setArguments(array(
+     'main',
+@@ -21,6 +17,10 @@ $loggerDefinition->setArguments(array(
+ ));
+ $container->setDefinition('logger', $loggerDefinition);
+ 
++$handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
++$handlerDefinition->setArguments(array(__DIR__.'/dino.log'));
++$container->setDefinition('logger.stream_handler', $handlerDefinition);
++
+ runApp($container);
+ 
+ function runApp(ContainerBuilder $container)
