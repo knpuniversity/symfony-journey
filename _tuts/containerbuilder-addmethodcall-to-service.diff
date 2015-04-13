@@ -1,0 +1,24 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 0686d5f..015cc01 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -18,12 +18,19 @@ $loggerDefinition->setArguments(array(
+ $loggerDefinition->addMethodCall('debug', array(
+     'Logger just got started'
+ ));
++$loggerDefinition->addMethodCall('pushHandler', array(
++    new Reference('logger.std_out_handler')
++));
+ $container->setDefinition('logger', $loggerDefinition);
+ 
+ $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
+ $handlerDefinition->setArguments(array(__DIR__.'/dino.log'));
+ $container->setDefinition('logger.stream_handler', $handlerDefinition);
+ 
++$stdOutLoggerDefinition = new Definition('Monolog\Handler\StreamHandler');
++$stdOutLoggerDefinition->setArguments(array('php://stdout'));
++$container->setDefinition('logger.std_out_handler', $stdOutLoggerDefinition);
++
+ runApp($container);
+ 
+ function runApp(ContainerBuilder $container)

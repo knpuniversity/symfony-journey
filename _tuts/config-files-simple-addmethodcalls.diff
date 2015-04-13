@@ -1,0 +1,10 @@
+diff --git a/dino_container/config/services.yml b/dino_container/config/services.yml
+index eb6e40c..7466cd7 100644
+--- a/dino_container/config/services.yml
++++ b/dino_container/config/services.yml
+@@ -4,3 +4,5 @@ services:
+         arguments:
+             - 'main'
+             - ['@logger.stream_handler']
++        calls:
++            - ['debug', ['Logger just got started!!!']]

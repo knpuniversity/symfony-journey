@@ -1,0 +1,9 @@
+diff --git a/dino_container/config/services.yml b/dino_container/config/services.yml
+index 6e788e5..eb6e40c 100644
+--- a/dino_container/config/services.yml
++++ b/dino_container/config/services.yml
+@@ -3,3 +3,4 @@ services:
+         class: Monolog\Logger
+         arguments:
+             - 'main'
++            - ['@logger.stream_handler']

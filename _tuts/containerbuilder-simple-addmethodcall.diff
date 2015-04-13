@@ -1,0 +1,14 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 104ebcf..0686d5f 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -15,6 +15,9 @@ $loggerDefinition->setArguments(array(
+     'main',
+     array(new Reference('logger.stream_handler'))
+ ));
++$loggerDefinition->addMethodCall('debug', array(
++    'Logger just got started'
++));
+ $container->setDefinition('logger', $loggerDefinition);
+ 
+ $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');

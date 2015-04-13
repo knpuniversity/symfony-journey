@@ -134,7 +134,37 @@
             "id": "containerbuilder-add-handler-definition",
             "name": "ContainerBuilder: Add handler definition",
             "description": null
+        },
+        {
+            "id": "containerbuilder-simple-addmethodcall",
+            "name": "ContainerBuilder: Simple addMethodCall",
+            "description": null
+        },
+        {
+            "id": "containerbuilder-addmethodcall-to-service",
+            "name": "ContainerBuilder: addMethodCall to service",
+            "description": null
+        },
+        {
+            "id": "config-files-initial-yml-load-of-logger",
+            "name": "Config Files: Initial yml load of logger",
+            "description": null
+        },
+        {
+            "id": "config-files-adding-service-argument",
+            "name": "Config Files: Adding @service argument",
+            "description": null
+        },
+        {
+            "id": "config-files-simple-addmethodcalls",
+            "name": "Config Files: Simple addMethodCalls",
+            "description": null
+        },
+        {
+            "id": "config-files-another-addmethodcall",
+            "name": "Config Files: Another addMethodCall",
+            "description": null
         }
     ],
-    "sha": "402e14c532f132309ef8b5739b46440ae1790172"
+    "sha": "d468e76c0ed44f685f0997ca76ded7fee631c40c"
 }
