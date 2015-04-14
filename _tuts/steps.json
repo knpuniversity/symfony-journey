@@ -164,7 +164,17 @@
             "id": "config-files-another-addmethodcall",
             "name": "Config Files: Another addMethodCall",
             "description": null
+        },
+        {
+            "id": "config-files-move-simple-handler-to-yml",
+            "name": "Config Files: Move simple handler to yml",
+            "description": null
+        },
+        {
+            "id": "config-files-set-parameter-externally-for-root-dir",
+            "name": "Config Files: Set parameter externally for root_dir",
+            "description": null
         }
     ],
-    "sha": "d468e76c0ed44f685f0997ca76ded7fee631c40c"
+    "sha": "21d2b4b044bbb4a9440ab62ad8642d3e1a2a91cc"
 }

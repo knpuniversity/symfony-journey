@@ -1,0 +1,27 @@
+diff --git a/dino_container/config/services.yml b/dino_container/config/services.yml
+index 2526be2..ddf6b63 100644
+--- a/dino_container/config/services.yml
++++ b/dino_container/config/services.yml
+@@ -7,3 +7,7 @@ services:
+         calls:
+             - ['pushHandler', ['@logger.std_out_handler']]
+             - ['debug', ['Logger just got started!!!']]
++
++    logger.std_out_handler:
++        class: Monolog\Handler\StreamHandler
++        arguments: ['php://stdout']
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 1a3aeff..28e7985 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -18,10 +18,6 @@ $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
+ $handlerDefinition->setArguments(array(__DIR__.'/dino.log'));
+ $container->setDefinition('logger.stream_handler', $handlerDefinition);
+ 
+-$stdOutLoggerDefinition = new Definition('Monolog\Handler\StreamHandler');
+-$stdOutLoggerDefinition->setArguments(array('php://stdout'));
+-$container->setDefinition('logger.std_out_handler', $stdOutLoggerDefinition);
+-
+ runApp($container);
+ 
+ function runApp(ContainerBuilder $container)
