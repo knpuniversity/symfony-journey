@@ -1,0 +1,68 @@
+diff --git a/app/AppKernel.php b/app/AppKernel.php
+index e6f4165..2a93702 100644
+--- a/app/AppKernel.php
++++ b/app/AppKernel.php
+@@ -36,4 +36,12 @@ class AppKernel extends Kernel
+     {
+         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+     }
++
++    protected function buildContainer()
++    {
++        $containerBuilder = parent::buildContainer();
++        $containerBuilder->addCompilerPass(new \AppBundle\DependencyInjection\Compiler\EarlyLoggingMessagePass());
++
++        return $containerBuilder;
++    }
+ }
+diff --git a/src/AppBundle/DependencyInjection/Compiler/EarlyLoggingMessagePass.php b/src/AppBundle/DependencyInjection/Compiler/EarlyLoggingMessagePass.php
+new file mode 100644
+index 0000000..1fd4d44
+--- /dev/null
++++ b/src/AppBundle/DependencyInjection/Compiler/EarlyLoggingMessagePass.php
+@@ -0,0 +1,23 @@
++<?php
++
++namespace AppBundle\DependencyInjection\Compiler;
++
++use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
++use Symfony\Component\DependencyInjection\ContainerBuilder;
++
++class EarlyLoggingMessagePass implements CompilerPassInterface
++{
++    /**
++     * You can modify the container here before it is dumped to PHP code.
++     *
++     * @param ContainerBuilder $container
++     *
++     * @api
++     */
++    public function process(ContainerBuilder $container)
++    {
++        $definition = $container->findDefinition('logger');
++        $definition->addMethodCall('debug', array('Logger CREATED!'));
++    }
++
++}
+\ No newline at end of file
+diff --git a/web/app_dev.php b/web/app_dev.php
+index e0279c2..3f174cb 100644
+--- a/web/app_dev.php
++++ b/web/app_dev.php
+@@ -17,13 +17,14 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
+     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
+ }
+ 
+-$loader = require_once __DIR__.'/../app/bootstrap.php.cache';
++//$loader = require_once __DIR__.'/../app/bootstrap.php.cache';
++$loader = require_once __DIR__.'/../app/autoload.php';
+ Debug::enable();
+ 
+ require_once __DIR__.'/../app/AppKernel.php';
+ 
+ $kernel = new AppKernel('dev', true);
+-$kernel->loadClassCache();
++//$kernel->loadClassCache();
+ $request = Request::createFromGlobals();
+ $response = $kernel->handle($request);
+ $response->send();

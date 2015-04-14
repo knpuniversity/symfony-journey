@@ -199,7 +199,12 @@
             "id": "dumping-using-the-cached-container",
             "name": "Dumping: Using the cached container",
             "description": null
+        },
+        {
+            "id": "compiler-register-a-compiler-pass-in-symfony",
+            "name": "Compiler: Register a compiler pass in Symfony",
+            "description": null
         }
     ],
-    "sha": "d33299cac606468012ef3301772e5d372b3ff744"
+    "sha": "4b0ca10bbaa9397ab27331476af1a6e90846d951"
 }
