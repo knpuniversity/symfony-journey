@@ -14,10 +14,16 @@ index ddf6b63..e318dba 100644
          class: Monolog\Handler\StreamHandler
          arguments: ['php://stdout']
 diff --git a/dino_container/roar.php b/dino_container/roar.php
-index 28e7985..1864ba9 100644
+index d872a82..32c9e9f 100644
 --- a/dino_container/roar.php
 +++ b/dino_container/roar.php
-@@ -11,13 +11,11 @@ use Symfony\Component\DependencyInjection\Reference;
+@@ -4,19 +4,16 @@ namespace Dino\Play;
+ 
+ use Symfony\Component\Config\FileLocator;
+ use Symfony\Component\DependencyInjection\ContainerBuilder;
+-use Symfony\Component\DependencyInjection\Definition;
+ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+ 
  require __DIR__.'/../vendor/autoload.php';
  
  $container = new ContainerBuilder();

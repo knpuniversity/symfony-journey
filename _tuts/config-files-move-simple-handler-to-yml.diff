@@ -11,10 +11,10 @@ index 2526be2..ddf6b63 100644
 +        class: Monolog\Handler\StreamHandler
 +        arguments: ['php://stdout']
 diff --git a/dino_container/roar.php b/dino_container/roar.php
-index 1a3aeff..28e7985 100644
+index f35da08..d872a82 100644
 --- a/dino_container/roar.php
 +++ b/dino_container/roar.php
-@@ -18,10 +18,6 @@ $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
+@@ -17,10 +17,6 @@ $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
  $handlerDefinition->setArguments(array(__DIR__.'/dino.log'));
  $container->setDefinition('logger.stream_handler', $handlerDefinition);
  

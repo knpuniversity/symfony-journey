@@ -174,7 +174,32 @@
             "id": "config-files-set-parameter-externally-for-root-dir",
             "name": "Config Files: Set parameter externally for root_dir",
             "description": null
+        },
+        {
+            "id": "config-files-adding-a-parameters-key",
+            "name": "Config Files: Adding a parameters key",
+            "description": null
+        },
+        {
+            "id": "dumping-compile-the-container",
+            "name": "Dumping: compile() the container",
+            "description": null
+        },
+        {
+            "id": "dumping-adding-basic-profiling",
+            "name": "Dumping: Adding basic profiling",
+            "description": null
+        },
+        {
+            "id": "dumping-using-phpdumper",
+            "name": "Dumping: Using PhpDumper",
+            "description": null
+        },
+        {
+            "id": "dumping-using-the-cached-container",
+            "name": "Dumping: Using the cached container",
+            "description": null
         }
     ],
-    "sha": "21d2b4b044bbb4a9440ab62ad8642d3e1a2a91cc"
+    "sha": "d33299cac606468012ef3301772e5d372b3ff744"
 }

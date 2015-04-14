@@ -1,0 +1,12 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 32c9e9f..8a673af 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -14,6 +14,7 @@ $container->setParameter('root_dir', __DIR__);
+ $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/config'));
+ $loader->load('services.yml');
+ 
++$container->compile();
+ runApp($container);
+ 
+ function runApp(ContainerBuilder $container)

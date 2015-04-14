@@ -10,18 +10,18 @@ index 0000000..6e788e5
 +        arguments:
 +            - 'main'
 diff --git a/dino_container/roar.php b/dino_container/roar.php
-index 015cc01..c74bc1d 100644
+index 015cc01..234ba2b 100644
 --- a/dino_container/roar.php
 +++ b/dino_container/roar.php
-@@ -2,14 +2,19 @@
+@@ -2,14 +2,18 @@
  
  namespace Dino\Play;
  
 +use Symfony\Component\Config\FileLocator;
  use Symfony\Component\DependencyInjection\ContainerBuilder;
  use Symfony\Component\DependencyInjection\Definition;
+-use Symfony\Component\DependencyInjection\Reference;
 +use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
- use Symfony\Component\DependencyInjection\Reference;
  
  require __DIR__.'/../vendor/autoload.php';
  
@@ -33,7 +33,7 @@ index 015cc01..c74bc1d 100644
  $loggerDefinition = new Definition('Monolog\Logger');
  $loggerDefinition->setArguments(array(
      'main',
-@@ -21,7 +26,7 @@ $loggerDefinition->addMethodCall('debug', array(
+@@ -21,7 +25,7 @@ $loggerDefinition->addMethodCall('debug', array(
  $loggerDefinition->addMethodCall('pushHandler', array(
      new Reference('logger.std_out_handler')
  ));

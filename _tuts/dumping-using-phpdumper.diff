@@ -1,0 +1,22 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index c2ec72f..e52ea3a 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -4,6 +4,7 @@ namespace Dino\Play;
+ 
+ use Symfony\Component\Config\FileLocator;
+ use Symfony\Component\DependencyInjection\ContainerBuilder;
++use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
+ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+ 
+ $start = microtime(true);
+@@ -17,6 +18,9 @@ $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/config'));
+ $loader->load('services.yml');
+ 
+ $container->compile();
++$dumper = new PhpDumper($container);
++file_put_contents(__DIR__.'/cached_container.php', $dumper->dump());
++
+ runApp($container);
+ 
+ $elapsed = round((microtime(true) - $start) * 1000);

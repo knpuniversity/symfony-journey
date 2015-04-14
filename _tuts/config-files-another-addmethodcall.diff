@@ -9,10 +9,10 @@ index 7466cd7..2526be2 100644
 +            - ['pushHandler', ['@logger.std_out_handler']]
              - ['debug', ['Logger just got started!!!']]
 diff --git a/dino_container/roar.php b/dino_container/roar.php
-index c74bc1d..1a3aeff 100644
+index 234ba2b..f35da08 100644
 --- a/dino_container/roar.php
 +++ b/dino_container/roar.php
-@@ -14,20 +14,6 @@ $container = new ContainerBuilder();
+@@ -13,20 +13,6 @@ $container = new ContainerBuilder();
  $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/config'));
  $loader->load('services.yml');
  

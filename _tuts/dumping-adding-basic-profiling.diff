@@ -1,0 +1,23 @@
+diff --git a/dino_container/roar.php b/dino_container/roar.php
+index 8a673af..c2ec72f 100644
+--- a/dino_container/roar.php
++++ b/dino_container/roar.php
+@@ -6,6 +6,8 @@ use Symfony\Component\Config\FileLocator;
+ use Symfony\Component\DependencyInjection\ContainerBuilder;
+ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+ 
++$start = microtime(true);
++
+ require __DIR__.'/../vendor/autoload.php';
+ 
+ $container = new ContainerBuilder();
+@@ -17,6 +19,9 @@ $loader->load('services.yml');
+ $container->compile();
+ runApp($container);
+ 
++$elapsed = round((microtime(true) - $start) * 1000);
++$container->get('logger')->debug('Elapsed Time: '.$elapsed.'ms');
++
+ function runApp(ContainerBuilder $container)
+ {
+     $container->get('logger')->info('ROOOOAR');

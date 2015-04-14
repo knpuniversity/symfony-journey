@@ -1,0 +1,20 @@
+diff --git a/dino_container/config/services.yml b/dino_container/config/services.yml
+index e318dba..531afbd 100644
+--- a/dino_container/config/services.yml
++++ b/dino_container/config/services.yml
+@@ -1,3 +1,6 @@
++parameters:
++    logger_startup_message: 'Logger just got started!!!'
++
+ services:
+     logger:
+         class: Monolog\Logger
+@@ -6,7 +9,7 @@ services:
+             - ['@logger.stream_handler']
+         calls:
+             - ['pushHandler', ['@logger.std_out_handler']]
+-            - ['debug', ['Logger just got started!!!']]
++            - ['debug', ['%logger_startup_message%']]
+ 
+     logger.stream_handler:
+         class: Monolog\Handler\StreamHandler
