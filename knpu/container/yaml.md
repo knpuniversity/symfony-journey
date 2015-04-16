@@ -57,13 +57,68 @@ this, it'll pass this in a string. In PHP code, this is where we passed in
 a `Reference` object. To do the same here, we put an `@` symbol on the front.
 I'll surround this in quotes - but you don't technically need to:
 
-[[[ code('') ]]]
+[[[ code('87b68caad8') ]]]
 
+Try it! Woh, explosion! Argument 2 should be an array, but I'm passing an
+object. I was sloppy. When I added the second line under `arguments`, this
+is the second argument to the constructor, and I'm passing literally *one*
+object. We know the second argument is an array of objects. So in Yaml, we
+need to surround this with square brackets to make that an array:
 
+[[[ code('562d313058') ]]]
 
+If we wanted something else in that array, we'd just add a comma inside those
+brackets. This time, no errors!
 
-The first thing you'll always have
-is `class` - set to `Monolog\Logger`. 
+```bash
+php dino_container/roar.php
+tail dino_container/dino.log
+```
 
+The console message is gone, but the log file gets it.
 
+The big point is that you can create `Definition` objects by hand, OR use
+a config file to do that for you. When `services.yml` is loaded, it *is*
+creating those same `Definition` objects.
 
+And as you'll see in a bit, if you want to get really advanced, you'll want
+to understand both ways of creating `Definition`s.
+
+## addMethodCall in Yaml
+
+Next, we need to move over the `addMethodCall` stuff. In Yaml, add a `calls`
+key. The bummer of the `calls` key is that it has a funny syntax. Add a new
+line with a dash like `arguments`. We know that the method is called `debug`
+and we need to pass that method a single string argument. In Yaml, it translates
+to this. Inside square brackets pass `debug`, then another set of square
+brackets for the arguments. If we wanted to pass three arguments, we'd just
+put a comma-separated list. We'll just paste the message in as the only argument:
+
+[[[ code('279fe0a6fa') ]]]
+
+I know that's ugly. Under the hood, that's training a `Definition` so that
+the `debug` method is called and it's passed this one argument. Let's go
+back to the terminal and try it:
+
+```bash
+php dino_container/roar.php
+tail dino_container/dino.log
+```
+
+Tail the logs, and boom! Our extra "logger has started" message is back.
+Now let's do the same for the other method call. It's exactly the same, except
+the argument is a service. Copy that name, add a new line under `calls`,
+say `pushHandler`, then say `@` then the paste our handler name:
+
+[[[ code('d0fc3830d9') ]]]
+
+This *all* sets up exactly what we had before. Try it!
+
+```bash
+php dino_container/roar.php
+```
+
+Back to dumping to the screen! And congrats! Our entire `logger` definition
+is in Yaml. And this is a really complicated example - even having `calls`
+is pretty rare. Celebrate by removing the commented-out `$loggerDefinition`
+stuff. 
