@@ -1,13 +1,14 @@
 diff --git a/dino_container/config/services.yml b/dino_container/config/services.yml
-index 7466cd7..2526be2 100644
+index 1caec00..fa2fa4c 100644
 --- a/dino_container/config/services.yml
 +++ b/dino_container/config/services.yml
-@@ -5,4 +5,5 @@ services:
+@@ -5,5 +5,6 @@ services:
              - 'main'
              - ['@logger.stream_handler']
          calls:
 +            - ['pushHandler', ['@logger.std_out_handler']]
              - ['debug', ['Logger just got started!!!']]
+ 
 diff --git a/dino_container/roar.php b/dino_container/roar.php
 index 234ba2b..f35da08 100644
 --- a/dino_container/roar.php

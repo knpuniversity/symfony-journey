@@ -151,6 +151,11 @@
             "description": null
         },
         {
+            "id": "config-files-service-with-bad-format",
+            "name": "Config Files: @service with bad format",
+            "description": null
+        },
+        {
             "id": "config-files-adding-service-argument",
             "name": "Config Files: Adding @service argument",
             "description": null
@@ -206,5 +211,5 @@
             "description": null
         }
     ],
-    "sha": "4b0ca10bbaa9397ab27331476af1a6e90846d951"
+    "sha": "3ae4f3b3b69881a715087ae3c6e715cf4086528c"
 }

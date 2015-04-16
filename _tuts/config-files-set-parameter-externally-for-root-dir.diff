@@ -1,5 +1,5 @@
 diff --git a/dino_container/config/services.yml b/dino_container/config/services.yml
-index ddf6b63..e318dba 100644
+index 647a690..c9467f8 100644
 --- a/dino_container/config/services.yml
 +++ b/dino_container/config/services.yml
 @@ -8,6 +8,10 @@ services:
