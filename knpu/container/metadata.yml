@@ -1,4 +1,4 @@
-title:  Journey to the Center of Symfony: The Container
+title:  Journey to the Center of Symfony: The Dependency Injection Container
 summary: |
     Let's not just *use* Symfony, let's conquer it! In this series, we're
     going to rip open the code that builds and boots Symfony's Container
@@ -20,11 +20,9 @@ tuts_hero:
     # start_step: start
 
 chapters:
-    booting-the-kernel:
+    container-in-the-wild:
         is_finished: false
-    building-the-container:
+    definition:
         is_finished: false
-    dependency-injection-extension-classes:
-        is_finished: false
-    compiler-passes:
+    definition-unlocked:
         is_finished: false
