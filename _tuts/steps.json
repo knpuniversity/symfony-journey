@@ -206,10 +206,15 @@
             "description": null
         },
         {
+            "id": "compiler-setup-app-dev-php-for-debugging",
+            "name": "Compiler: Setup app_dev.php for debugging",
+            "description": null
+        },
+        {
             "id": "compiler-register-a-compiler-pass-in-symfony",
             "name": "Compiler: Register a compiler pass in Symfony",
             "description": null
         }
     ],
-    "sha": "785b6567cbcf49b2576dbe995267f2b856546532"
+    "sha": "6652972ccfbcad10ffaccc947baab5bc00d77ef8"
 }
