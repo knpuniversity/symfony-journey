@@ -15,6 +15,18 @@ index e6f4165..2a93702 100644
 +        return $containerBuilder;
 +    }
  }
+diff --git a/app/cache/dev/appDevDebugProjectContainer.php b/app/cache/dev/appDevDebugProjectContainer.php
+index 316aa98..6024a6a 100644
+--- a/app/cache/dev/appDevDebugProjectContainer.php
++++ b/app/cache/dev/appDevDebugProjectContainer.php
+@@ -2098,6 +2098,7 @@ class appDevDebugProjectContainer extends Container
+         $instance->pushHandler($this->get('monolog.handler.console'));
+         $instance->pushHandler($this->get('monolog.handler.main'));
+         $instance->pushHandler($this->get('monolog.handler.debug'));
++        $instance->debug('Logger CREATED!');
+ 
+         return $instance;
+     }
 diff --git a/src/AppBundle/DependencyInjection/Compiler/EarlyLoggingMessagePass.php b/src/AppBundle/DependencyInjection/Compiler/EarlyLoggingMessagePass.php
 new file mode 100644
 index 0000000..1fd4d44

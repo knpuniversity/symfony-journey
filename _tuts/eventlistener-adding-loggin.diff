@@ -1,3 +1,16 @@
+diff --git a/app/cache/dev/appDevDebugProjectContainer.php b/app/cache/dev/appDevDebugProjectContainer.php
+index 14764a6..316aa98 100644
+--- a/app/cache/dev/appDevDebugProjectContainer.php
++++ b/app/cache/dev/appDevDebugProjectContainer.php
+@@ -3827,7 +3827,7 @@ class appDevDebugProjectContainer extends Container
+      */
+     protected function getUserAgentSubscriberService()
+     {
+-        return $this->services['user_agent_subscriber'] = new \AppBundle\EventListener\UserAgentSubscriber();
++        return $this->services['user_agent_subscriber'] = new \AppBundle\EventListener\UserAgentSubscriber($this->get('logger'));
+     }
+ 
+     /**
 diff --git a/app/config/services.yml b/app/config/services.yml
 index 649b432..3a3aaf6 100644
 --- a/app/config/services.yml
