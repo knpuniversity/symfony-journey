@@ -28,7 +28,9 @@ chapters:
         is_finished: false
     yaml:
         is_finished: false
-    paramters:
+    parameters:
+        is_finished: false
+    dumper:
         is_finished: false
     symfony-builds-the-container:
         is_finished: false
