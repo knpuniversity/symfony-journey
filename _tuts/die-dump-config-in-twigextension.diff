@@ -1,0 +1,20 @@
+diff --git a/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php b/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
+index d8deab8..409b943 100644
+--- a/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
++++ b/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
+@@ -33,7 +33,6 @@ class TwigExtension extends Extension
+      */
+     public function load(array $configs, ContainerBuilder $container)
+     {
+-        var_dump($configs);die;
+         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+         $loader->load('twig.xml');
+ 
+@@ -53,6 +52,7 @@ class TwigExtension extends Extension
+         $configuration = $this->getConfiguration($configs, $container);
+ 
+         $config = $this->processConfiguration($configuration, $configs);
++        var_dump($config);die;
+ 
+         $container->setParameter('twig.exception_listener.controller', $config['exception_controller']);
+ 

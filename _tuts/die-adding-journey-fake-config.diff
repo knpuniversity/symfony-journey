@@ -1,0 +1,14 @@
+diff --git a/app/config/config.yml b/app/config/config.yml
+index 25f6647..07f299d 100644
+--- a/app/config/config.yml
++++ b/app/config/config.yml
+@@ -3,6 +3,9 @@ imports:
+     - { resource: security.yml }
+     - { resource: services.yml }
+ 
++journey:
++    dino_count: 10
++
+ framework:
+     #esi:             ~
+     #translator:      { fallback: "%locale%" }

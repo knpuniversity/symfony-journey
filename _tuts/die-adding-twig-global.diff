@@ -1,0 +1,13 @@
+diff --git a/app/config/config.yml b/app/config/config.yml
+index 25f6647..64ff7fa 100644
+--- a/app/config/config.yml
++++ b/app/config/config.yml
+@@ -29,6 +29,8 @@ framework:
+ twig:
+     debug:            "%kernel.debug%"
+     strict_variables: "%kernel.debug%"
++    globals:
++        twitter_username: weaverryan
+ 
+ # Assetic Configuration
+ assetic:

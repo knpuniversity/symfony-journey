@@ -239,7 +239,42 @@
             "id": "kernel-removing-dump",
             "name": "Kernel: Removing dump",
             "description": null
+        },
+        {
+            "id": "die-adding-journey-fake-config",
+            "name": "DIE: Adding journey fake config",
+            "description": null
+        },
+        {
+            "id": "die-removing-fake-config",
+            "name": "DIE: Removing fake config",
+            "description": null
+        },
+        {
+            "id": "die-adding-twig-global",
+            "name": "DIE: Adding Twig global",
+            "description": null
+        },
+        {
+            "id": "die-var-dump-in-twigextension",
+            "name": "DIE: var_dump in TwigExtension",
+            "description": null
+        },
+        {
+            "id": "die-dump-config-in-twigextension",
+            "name": "DIE: Dump $config in TwigExtension",
+            "description": null
+        },
+        {
+            "id": "die-remove-from-twigextension",
+            "name": "DIE: Remove from TwigExtension",
+            "description": null
+        },
+        {
+            "id": "compiler-var-dump-in-kernel",
+            "name": "Compiler: var_dump in Kernel",
+            "description": null
         }
     ],
-    "sha": "368a5c88db10193b7913fe01eb69dd47d7176658"
+    "sha": "be9890531b2ce795a9fa477f44101cfdd9aa9505"
 }
