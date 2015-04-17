@@ -224,7 +224,22 @@
             "id": "kernel-remove-var-dump",
             "name": "Kernel: remove var_dump",
             "description": null
+        },
+        {
+            "id": "kernel-var-dump-after-registercontainerconfiguration",
+            "name": "Kernel: var_dump after registerContainerConfiguration",
+            "description": null
+        },
+        {
+            "id": "kernel-dump-the-whole-parameter-pag",
+            "name": "Kernel: Dump the whole parameter pag",
+            "description": null
+        },
+        {
+            "id": "kernel-removing-dump",
+            "name": "Kernel: Removing dump",
+            "description": null
         }
     ],
-    "sha": "e092d148352615eeb728e8b794dc7457dcf7ff55"
+    "sha": "368a5c88db10193b7913fe01eb69dd47d7176658"
 }
