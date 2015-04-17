@@ -41,7 +41,7 @@ looking for a `DependencyInjection\AppExtension` class. We don't have that.
 
 Open up the TwigBundle class and double-click the directory tree at the top
 to move PhpStorm here. TwigBundle *does* have a `DependencyInjection`
-directory and a `TwigExtension` inside. So because this is there, it's automatically
+directory and a `TwigExtension` inside. So because this is here, it's automatically
 registered with the container. We may not know what an extension does yet,
 but we know how it's all setup.
 
@@ -136,8 +136,8 @@ So finally, how is the `globals` key used? Scroll down to around line 90:
 
 For most people, this code will look weird. But not us! If there are globals,
 it gets the `twig` Definition back *out* of the `ContainerBuilder`. This
-definition was added when it loaded `twig.xml`, and now we're going to change.
-Just focus on the second part of the `if`: it calls `$def->addMethodCall()`
+definition was added when it loaded `twig.xml`, and now we're going to tweak
+it. Just focus on the second part of the `if`: it calls `$def->addMethodCall()`
 and passes it `addGlobal` and two arguments: our key from the config, and
 the value - `weaverryan` in this case.
 

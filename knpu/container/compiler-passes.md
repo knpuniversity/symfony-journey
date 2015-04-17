@@ -107,6 +107,6 @@ Phew! So you're now a master. The Container is all about Definition objects,
 which are populated from Yaml and XML files and then updated later in the
 dependency injection extension classes. If you're following this, go dive
 into the `FrameworkBundle` and see where the *real* core services come from
-And congrats, because now, you're a dependency-injection-saurus!
+And congrats, because now, you're a dependency-injection-asaurus!
 
 Ok guys, seeya next time!

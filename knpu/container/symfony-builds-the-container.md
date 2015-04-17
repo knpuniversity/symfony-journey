@@ -6,8 +6,8 @@ Symfony.
 ## Setting up app_dev.php for Debugging
 
 To figure things out, let's jump straight to the code, starting with the
-`app_dev.php` front controller. We'll be putting some `var_dump` statements
-core classes, and for that to actually work, we need to make a few changes
+`app_dev.php` front controller. We're goinf to add some `var_dump` statements
+to core classes, and for that to actually work, we need to make a few changes
 here. First, instead of loading `bootstrap.php.cache`, require `autoload.php`.
 Second, make sure this `$kernel->loadClassCache()` line is commented out:
 
@@ -74,7 +74,7 @@ know where they come from. It also calls `getEnvParameters()`:
 
 [[[ code('6623b29e55') ]]]
 
-You may not know about this feature: if you set an environment parameter
+You may not know about this feature: if you set an environment variable
 that starts with `SYMFONY__`, that prefix is stripped and its added as a
 parameter automatically. That magic comes from right here
 
@@ -119,7 +119,7 @@ function actually lives in our `AppKernel`:
 
 The `LoaderInterface` argument is an object that's a lot like the `YamlFileLoader`
 that we created manually in `roar.php`. This loader can *also* read other
-formats, like XML. But byeond that, it's the same: you create a loader and
+formats, like XML. But beyond that, it's the same: you create a loader and
 then pass it a file full of services.
 
 When Symfony boots, it only loads *one* configuration file - `config_dev.yml`
@@ -159,7 +159,7 @@ from zero services to only 1. Let's dump to prove it - `$container->getDefinitio
 
 [[[ code('9dafdbdfdb') ]]]
 
-Refresh! Yep, there's just our *one* `user_agency_subscriber` service. We can
+Refresh! Yep, there's just our *one* `user_agenct_subscriber` service. We can
 dump the parameters too - `$container->getParameterBag()->all()`:
 
 [[[ code('3b619451a5') ]]]
