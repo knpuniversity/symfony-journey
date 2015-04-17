@@ -1,14 +1,14 @@
 # Parameters
 
 Let's finish this up by converting both handlers to Yaml. Do the "stdout"
-logger first - it'll be easier. Under the `services` key, add a new entry
-for `logger.std_out_logger` and give it a class name:
+logger first - it's easier. Under the `services` key, add a new entry
+for `logger.std_out_logger` and give it the class name:
 
 [[[ code('fe519b765a') ]]]
 
 Peak back - this has one argument. So add the `arguments` key and give it
 the `php://stdout`. Those quotes are optional, and if you want, you can put
-the arguments up onto one line, inside those square brackets:
+the arguments up onto one line, inside square brackets:
 
 [[[ code('08c5ef7b32') ]]]
 
@@ -23,15 +23,15 @@ Perfect!
 ## Adding a Parameter in PHP
 
 Now let's move the *other* handler. But this one is a little trickier: its
-argument has a PHP expression - `__DIR__` in it. That's trouble.
+argument has a PHP expression - `__DIR__`. That's trouble.
 
 But hey, ignore it for now! Copy the service name and put it into `services.yml`.
 The order of services does *not* matter. Pass it the class and give it a
 single argument. This will *not* work, but I'll copy the `__DIR__.'/dino.log`
 in as the argument:
 
-That's the basic idea, but that `__DIR__` is PHP code. And we're *not* inside
-PHP! The solution is really nice.
+That's the basic idea, but since that `__DIR__` stuff is PHP code, this won't
+work. But the solution is really nice.
 
 The container holds *more* than services. It *also* has a simple key-value
 configuration system called parameters. In PHP, to add a parameter, just say
@@ -53,14 +53,14 @@ and load the yaml file:
 
 [[[ code('6d5b774a93') ]]]
 
-Moment of truth! Give it a try:
+Ok, moment of truth!
 
 ```bash
 php dino_container/roar.php
 tail dino_container/dino.log
 ```
 
-It still prints! And it's still adding to our log file. And all that service
+It still prints! And it's still adding to our log file. And now all that service
 Definition code is sitting in `services.yml`.
 
 ## Parameters in Yaml
@@ -68,15 +68,15 @@ Definition code is sitting in `services.yml`.
 Of course, you can also add parameters in Yaml. Add a `parameters` root key
 somewhere - order doesn't matter - and invent one called `logger_start_message`.
 Copy the string from the `debug` call and paste it. Now that we have a second
-parameter, we can grab the key and use it inside two percents below:
+parameter, we can grab the key and use it inside two percents:
 
 [[[ code('37ca9e6682') ]]]
 
 And this still works just like before.
 
-This last point is *really* important. Yaml files that build the container
+This last point is actually really important. Yaml files that build the container
 only have *three* valid root keys: `services`, `parameters` and another called
-`imports`, which just loads another file. And that makes sense. After all,
+`imports`, which just loads other files. And that makes sense. After all,
 a container is nothing more than a collection of services and parameters.
 This point will be really important later. Because in Symfony, files like
 `config.yml` violate this rule with root keys like `framework` and `twig`.
