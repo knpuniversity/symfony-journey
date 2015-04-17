@@ -1,3 +1,43 @@
+diff --git a/app/cache/dev/appDevDebugProjectContainer.php b/app/cache/dev/appDevDebugProjectContainer.php
+index 00064b2..14764a6 100644
+--- a/app/cache/dev/appDevDebugProjectContainer.php
++++ b/app/cache/dev/appDevDebugProjectContainer.php
+@@ -866,6 +866,7 @@ class appDevDebugProjectContainer extends Container
+             'twig.loader' => 'getTwig_LoaderService',
+             'twig.translation.extractor' => 'getTwig_Translation_ExtractorService',
+             'uri_signer' => 'getUriSignerService',
++            'user_agent_subscriber' => 'getUserAgentSubscriberService',
+             'validator' => 'getValidatorService',
+             'validator.builder' => 'getValidator_BuilderService',
+             'validator.email' => 'getValidator_EmailService',
+@@ -1133,6 +1134,7 @@ class appDevDebugProjectContainer extends Container
+         $instance->addListenerService('console.command', array(0 => 'monolog.handler.console_very_verbose', 1 => 'onCommand'), 255);
+         $instance->addListenerService('console.terminate', array(0 => 'monolog.handler.console_very_verbose', 1 => 'onTerminate'), -255);
+         $instance->addListenerService('kernel.request', array(0 => 'assetic.request_listener', 1 => 'onKernelRequest'), 0);
++        $instance->addSubscriberService('user_agent_subscriber', 'AppBundle\\EventListener\\UserAgentSubscriber');
+         $instance->addSubscriberService('response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener');
+         $instance->addSubscriberService('streamed_response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\StreamedResponseListener');
+         $instance->addSubscriberService('locale_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\LocaleListener');
+@@ -3816,6 +3818,19 @@ class appDevDebugProjectContainer extends Container
+     }
+ 
+     /**
++     * Gets the 'user_agent_subscriber' service.
++     *
++     * This service is shared.
++     * This method always returns the same instance of the service.
++     *
++     * @return \AppBundle\EventListener\UserAgentSubscriber A AppBundle\EventListener\UserAgentSubscriber instance.
++     */
++    protected function getUserAgentSubscriberService()
++    {
++        return $this->services['user_agent_subscriber'] = new \AppBundle\EventListener\UserAgentSubscriber();
++    }
++
++    /**
+      * Gets the 'validator' service.
+      *
+      * This service is shared.
 diff --git a/src/AppBundle/EventListener/UserAgentSubscriber.php b/src/AppBundle/EventListener/UserAgentSubscriber.php
 index 6c85523..c002379 100644
 --- a/src/AppBundle/EventListener/UserAgentSubscriber.php

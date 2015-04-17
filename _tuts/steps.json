@@ -214,7 +214,17 @@
             "id": "compiler-register-a-compiler-pass-in-symfony",
             "name": "Compiler: Register a compiler pass in Symfony",
             "description": null
+        },
+        {
+            "id": "kernel-var-dump-after-creating-the-container",
+            "name": "Kernel: var_dump after creating the container",
+            "description": null
+        },
+        {
+            "id": "kernel-remove-var-dump",
+            "name": "Kernel: remove var_dump",
+            "description": null
         }
     ],
-    "sha": "6652972ccfbcad10ffaccc947baab5bc00d77ef8"
+    "sha": "bcdcb4b711df2daa713113f4ebba3e56d4de2502"
 }

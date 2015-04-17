@@ -1,0 +1,12 @@
+diff --git a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
+index d3eed40..9d867cd 100644
+--- a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
++++ b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
+@@ -639,6 +639,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
+         }
+ 
+         $container = $this->getContainerBuilder();
++        var_dump($container);die;
+         $container->addObjectResource($this);
+         $this->prepareContainer($container);
+ 
