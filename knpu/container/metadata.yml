@@ -17,7 +17,7 @@ illustration: sf2-journey-container.png
 hasVideoDownload: 0
 
 tuts_hero:
-    # start_step: start
+    start_step: sub-request-properly-pass-the-variable
 
 chapters:
     container-in-the-wild:
