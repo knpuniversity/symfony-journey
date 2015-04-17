@@ -85,14 +85,14 @@ parameter automatically. That magic comes from right here
 Back in `buildContainer()`, let's `var_dump()` the `$container` so far to
 see what we've got:
 
-[[[ code('247659acc8') ]]]
+[[[ code('e2bb387744') ]]]
 
 Ok, refresh! Hmm, it didn't hit my code. Why? Well, the container might already
 be cached, so it's not going through the building process - it's just using
 that file. To force a build, you can delete the cached container file. But
 before you do that, I'll look inside - it's located at `app/cache/dev/appDevDebugProjectContainer.php`:
 
-[[[ code('') ]]]
+[[[ code('9a435a0119') ]]]
 
 It's a lot bigger and has a different class name, but this is just like our
 cached container: it has all the parameters on top, then a bunch of methods
@@ -159,12 +159,12 @@ one service definition and `parameters.yml` adds some parameters.
 So after the `registerContainerConfiguration()` line is done, we've gone
 from zero services to only 1. Let's dump to prove it - `$container->getDefinitions()`.
 
-[[[ code('') ]]]
+[[[ code('9dafdbdfdb') ]]]
 
 Refresh! Yep, there's just our *one* `UserAgentSubscriber` service. We can
 dump the parameters too - `$container->getParameterBag()->all()`:
 
-[[[ code('') ]]]
+[[[ code('3b619451a5') ]]]
 
 This dumps out the `kernel` parameters from earlier plus the stuff from
 `parameters.yml`.
