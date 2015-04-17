@@ -30,3 +30,5 @@ chapters:
         is_finished: false
     paramters:
         is_finished: false
+    symfony-builds-the-container:
+        is_finished: false
