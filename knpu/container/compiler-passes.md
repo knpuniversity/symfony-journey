@@ -3,7 +3,7 @@
 By the time we got to this step in the `Kernel`, our configuration files
 have been loaded, but this gives us just *one* service definition:
 
-[[[ code('') ]]]
+TODO CODE
 
 So every other service must be added inside `compile()`. And that's true!
 
@@ -17,7 +17,7 @@ But there's a bunch of other compiler passes, and most do small things. They're
 usually registered inside your bundle class - `FrameworkBundle` is a great
 example:
 
-[[[ code('') ]]]
+TODO CODE
 
 The `build()` method of every bundle is called early, and is used almost
 entirely just to add compiler passes. So what's the point of compiler passes?
@@ -36,12 +36,12 @@ add the tag: `kernel.event_subscriber`. So how does that work?
 It's a compiler pass! And you can see it registered in `FrameworkBundle`,
 it's `RegisterListenerPass`:
 
-[[[ code('') ]]]
+TODO CODE
 
 The `subscriberTag` property is: `kernel.event_subscriber`. Near the bottom,
 it calls `$container->findTaggedServiceIds()` and passes it that:
 
-[[[ code('') ]]]
+TODO CODE
 
 It's saying: give me *all* services tagged with `kernel.event_subscriber`.
 The `$definition` variable at the bottom is the Definition object for the
@@ -52,7 +52,7 @@ Let's go see this in the cached container. Refresh to get it back, then search
 for `user_agent_subscriber`. There it is! It's calling the `addSubscriberService`
 method and passing the service id and class:
 
-[[[ code('') ]]]
+TODO CODE
 
 This is one of the most common jobs for a compiler pass. For example, there's
 another tag called `form.type` and this `FormPass` looks for all services
@@ -79,7 +79,7 @@ that again.
 Compiler classes are pretty easy - just implement `CompilerPassInterface`
 and add the one method: `process()`:
 
-[[[ code('') ]]]
+TODO CODE
 
 Now we should feel really comfortable: that's a `ContainerBuilder` object
 and we know all about him. It also has every service already defined inside.
@@ -87,7 +87,7 @@ So we can say: `$definition = $container->findDefinition('logger')`. Now
 just add `$definition->addMethodCall()` and pass it `debug` for the method,
 and an array with a single argument: `Logger CREATED`:
 
-[[[ code('') ]]]
+TODO CODE
 
 And that's a functional compiler pass.
 
@@ -98,7 +98,7 @@ Instead, go to `AppKernel` and override `buildContainer()`. Call the parent
 method, then add `$container->addCompilerPass()` and pass it a new `EarlyLoggingMessagePass`.
 And don't forget to return the `$container`:
 
-[[[ code('') ]]]
+TODO CODE
 
 Ok, let's try it! Refresh! Click into the profiler then go to the logs tab.
 Under debug, there's the message! First on the list. 

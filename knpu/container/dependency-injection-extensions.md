@@ -4,7 +4,7 @@ These Yaml files *should* only have keys for `services`, `parameters` and
 `imports`. What if I just make something up, like `journey` and put a
 `dino_count` of 10 under it:
 
-[[[ code('') ]]]
+TODO CODE
 
 When we refresh, we get a *huge* error!
 
@@ -26,13 +26,13 @@ The answer lives in the bundle classes. Open up `AppBundle`:
 This is empty, but it extends Symfony's base `Bundle` class. The key method
 is `getContainerExtension()`:
 
-[[[ code('') ]]]
+TODO CODE
 
 When Symfony boots, it calls this method on each bundle looking for something
 called an Extension. This calls `getContainerExtensionClass()` and checks
 to see if that class exists. Move down to that method:
 
-[[[ code('') ]]]
+TODO CODE
 
 Ah, and *here's* the magic. To find this "extension" class, it looks for
 a `DependencyInjection` directory and a class with the same name as the bundle,
@@ -52,7 +52,7 @@ unrelated feature. If you want to add a global variable to Twig, one way
 to do that is under the `twig` config. Just add `globals`, then set something
 up. I'll say `twitter_username: weaverryan`:
 
-[[[ code('') ]]]
+TODO CODE
 
 And just by doing that, we could open up any Twig template and have access
 to a `twitter_username` variable. My question is: how does that work?
@@ -67,12 +67,12 @@ naming-convention.
 
 Let's dump the `$configs` variable, because I don't know what that is yet:
 
-[[[ code('') ]]]
+TODO CODE
 
 Go back and refresh! Ok: it dumps an array with the `twig` configuration.
 Whatever we have in `config.yml` under `twig` is getting passed to `TwigExtension`:
 
-[[[ code('') ]]]
+TODO CODE
 
 In fact, *that's* the rule. The fact that we have a key called `framework`
 means that this config will be passed to a class called `FrameworkExtension`.
@@ -91,7 +91,7 @@ The way it does this is just like our `roar.php` file, except it loads an
 XML file instead of Yaml. Let's open up that `Resources/config/twig.xml`
 file:
 
-[[[ code('') ]]]
+TODO CODE
 
 If you ever wondered where the `twig` service comes from, it's right here!
 You can see it in `container:debug`. So the first job of an extension class
@@ -106,7 +106,7 @@ Most extensions will have two lines near the top that call `getConfiguration()`
 and `processConfiguration`. Next to every extension class, you'll find a
 class called `Configuration`:
 
-[[[ code('') ]]]
+TODO CODE
 
 Watch out, a meteor! Oh, nevermind, it's just the awesome fact that if I
 mess up some configuration - like `globals` as `globalsss` in Yaml, we'll
@@ -123,7 +123,7 @@ give you a hint.
 
 Back in `TwigExtension`, let's dump `$config` after calling `processConfiguration()`:
 
-[[[ code('') ]]]
+TODO CODE
 
 This dumps out a nice, normalized and validated version of our config, including
 keys we didn't have, with their default values. 
@@ -132,7 +132,7 @@ keys we didn't have, with their default values.
 
 So finally, how is the `globals` key used? Scroll down to around line 90:
 
-[[[ code('') ]]]
+TODO CODE
 
 For most people, this code will look weird. But not us! If there are globals,
 it gets the `twig` Definition back *out* of the `ContainerBuilder`. This
@@ -151,7 +151,7 @@ open up the cached container - `app/cache/dev/appDevDebugProjectContainer.php`
 and find the method that creates the `twig` service - `getTwigService()`.
 Make sure you spell that correctly:
 
-[[[ code('') ]]]
+TODO CODE
 
 Near the bottom, we see it: `$instance->addGlobal('twitter_username', 'weaverryan')`.
 We passed in simple configuration, `TwigExtension` used that to mutate the

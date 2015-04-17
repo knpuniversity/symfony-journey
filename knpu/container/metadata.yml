@@ -34,7 +34,3 @@ chapters:
         is_finished: false
     symfony-builds-the-container:
         is_finished: false
-    dependency-injection-extensions:
-        is_finished: false
-    compiler-passes:
-        is_finished: false
