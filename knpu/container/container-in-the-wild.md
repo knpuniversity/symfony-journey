@@ -2,7 +2,7 @@
 
 A whole mini-series on Symfony's Dependency Injection Container? Yes! Do
 you want to *really* understand how Symfony works - and also Drupal 8?
-then you're in the right place.
+Then you're in the right place.
 
 That's because Symfony is 2 parts. The first is the routing/controller/response
 and event listener flow we talked about in the first Symfony Journey part.
@@ -107,7 +107,7 @@ Yep, still roaring.
 
 ## Adding a Second Service
 
-A real project will have *a lot* of services - maybe hundres. Let's add a
+A real project will have *a lot* of services - maybe hundreds. Let's add a
 second one. When you log something, monolog passes that to handlers, and
 they actually do the work, like adding it to a log file or a database.
 
@@ -116,7 +116,7 @@ We'll stream logs into a `dino.log` file:
 
 [[[ code('d855267c80') ]]]
 
-Next, pass an array as the second argument to our Logger with this insde:
+Next, pass an array as the second argument to our Logger with this inside:
 
 [[[ code('a3996686ec') ]]]
 

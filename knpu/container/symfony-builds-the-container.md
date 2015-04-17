@@ -85,7 +85,7 @@ parameter automatically. That magic comes from right here
 Back in `buildContainer()`, let's `var_dump()` the `$container` so far to
 see what we've got:
 
-[[[ code('') ]]]
+[[[ code('247659acc8') ]]]
 
 Ok, refresh! Hmm, it didn't hit my code. Why? Well, the container might already
 be cached, so it's not going through the building process - it's just using

@@ -12,7 +12,7 @@ for files inside of a `config` directory". To make it read a Yaml file, call
 
 [[[ code('8fbb0e03c0') ]]]
 
-This is code tells the container to go find service definitions in this file. 
+This code tells the container to go find service definitions in this file. 
 
 Now create a `config/` directory and put that `services.yml` in there. Our
 goal is to move all of this `Definition` stuff into that Yaml file. We'll
@@ -93,7 +93,7 @@ put a comma-separated list. We'll just paste the message in as the only argument
 
 [[[ code('279fe0a6fa') ]]]
 
-I know that's ugly. But under the hood, that's just calling `setMethodCall`
+I know that's ugly. But under the hood, that's just calling `addMethodCall`
 on the `Definition` and passing it `debug` and this arguments array. Let's go
 back to the terminal and try it:
 

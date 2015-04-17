@@ -1,6 +1,6 @@
 # The Container Dumper
 
-After a container is built, you should `compile` on it:
+After a container is built, you should `compile` it:
 
 [[[ code('29eb04313b') ]]]
 
@@ -125,9 +125,7 @@ We're still passing this `$container` into `runApp()`, and even though it's
 technically a different object, it's not going to make *any* difference.
 The only thing we need to change is that `runApp()` is type-hinted with
 `ContainerBuilder`. Well, it turns out that what we really need is `Container`,
-which is the base class for the builder and our cached class. Using this
-as the type-hint makes sense, because it has the all-important `get()` method
-on it.
+which is the base class for the builder and our cached class.
 
 So I'll change the type-hint to `Container`. And we can go a step further:
 the `Container` class implements an interface called `ContainerInterface`:

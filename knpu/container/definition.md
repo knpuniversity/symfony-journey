@@ -81,7 +81,8 @@ we can remove the original code that set it directly.
 So even though the `logger` service *needs* the stream handler service, we
 can describe them in any order. When we eventually ask for the `logger`,
 Symfony will go make the `logger.stream_handler` service first, then pass
-it to `logger`.
+it to `logger`. That's why it's called a dependency injector container: it
+helps you manage dependencies.
 
 But like before, our "app code" has no idea any of this is happening. So
 when we hit the script again, there's another log message:
