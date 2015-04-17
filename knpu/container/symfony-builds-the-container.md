@@ -6,7 +6,7 @@ Symfony.
 ## Setting up app_dev.php for Debugging
 
 To figure things out, let's jump straight to the code, starting with the
-`app_dev.php` front controller. We're goinf to add some `var_dump` statements
+`app_dev.php` front controller. We're going to add some `var_dump` statements
 to core classes, and for that to actually work, we need to make a few changes
 here. First, instead of loading `bootstrap.php.cache`, require `autoload.php`.
 Second, make sure this `$kernel->loadClassCache()` line is commented out:
@@ -17,7 +17,7 @@ A copy of some *really* core classes in Symfony are stored in the cache director
 for a little performance boost. These two changes turn that off so that if
 we `var_dump` somewhere, it'll definitely work.
 
-## Botting the Kernel
+## Booting the Kernel
 
 In the first journey episode, we followed this `$kernel->handle()` method
 to find out what happens between the request and response. But this method

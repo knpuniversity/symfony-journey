@@ -9,7 +9,7 @@ and event listener flow we talked about in the first Symfony Journey part.
 The second half is all about the container. Understand it, and you'll unlock
 everything.
 
-## Seting up the Playground
+## Setting up the Playground
 
 Symfony normally gives you the built container. Instead of that, let's do
 a DIY project and create that by hand. Actually, let's get out of Symfony

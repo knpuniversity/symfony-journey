@@ -4,7 +4,7 @@ This `Definition` object is massively important to Symfony's container, and
 in the framework, they're built behind-the-scenes all over the place. I'll
 show you how in a bit.
 
-Beyond using the class name and passing consructor arguments, there are a
+Beyond using the class name and passing constructor arguments, there are a
 bunch of other things that you can train a `Definition` object to do. For
 example, what if you wanted the container to instantiate a service, but then
 also call a method on it *before* passing the service back?
@@ -35,7 +35,7 @@ we can create a *second* handler and hook it up with a method call.
 Start by creating the new Definition - it'll be a stream again, so re-use
 the `StreamHandler` class. This handler will dump the output to the console.
 To do that, call `setArguments()` like before, but this time, we'll pass
-a single argument: `php://stdout`. Woops, and I'll fix my wrong variable name.
+a single argument: `php://stdout`. Whoops, and I'll fix my wrong variable name.
 Now put it into the container with `setDefinition()` - we'll call it `logger.std_out_logger`.
 
 [[[ code('37fb18e132') ]]]

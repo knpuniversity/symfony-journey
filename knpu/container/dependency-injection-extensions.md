@@ -108,7 +108,7 @@ class called `Configuration`:
 
 TODO CODE
 
-Watch out, a meteor! Oh, nevermind, it's just the awesome fact that if I
+Watch out, a meteor! Oh, never mind, it's just the awesome fact that if I
 mess up some configuration - like `globals` as `globalsss` in Yaml, we'll
 get a really nice error. That doesn't happen by accident, that system *evolved*
 these `Configuration` classes to make that happen.

@@ -9,7 +9,7 @@ So every other service must be added inside `compile()`. And that's true!
 
 Calling `compile()` executes a group of functions called compiler passes.
 In fact, there's one called `MergeExtensionConfigurationPass`, and it's responsible
-for the `Extension` system we just looked at. It loops over the exension
+for the `Extension` system we just looked at. It loops over the extension
 objects and calls `load()` on each one. This is where most of the services
 come from.
 

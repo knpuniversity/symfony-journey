@@ -39,7 +39,7 @@ isn't the string `logger.stream_handler`, it's a service with this id.":
 
 [[[ code('4de0684cef') ]]]
 
-To put this into the container, intead of calling `set`, use `setDefinition`
+To put this into the container, instead of calling `set`, use `setDefinition`
 with the nickname `logger` and the `$loggerDefinition`. Now get rid of the
 old lines that set the `logger` service directly:
 
