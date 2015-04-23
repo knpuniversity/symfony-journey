@@ -21,13 +21,16 @@ tuts_hero:
 
 chapters:
     container-in-the-wild:
-        is_finished: false
+        is_free: true
+        video_key: 3x9sbtx4h8
     definition:
-        is_finished: false
+        is_free: true
+        video_key: t0bhilxo06
     definition-unlocked:
-        is_finished: false
+        is_free: true
+        video_key: pnqt8rnyug
     yaml:
-        is_finished: false
+        video_key: 4yn27ndvo0
     parameters:
         is_finished: false
     dumper:
