@@ -43,7 +43,7 @@ category - you'll see that word `main` in the logs. Now log something:
 
 Ok, let's see if we can get this script to yell back at us. Run it with:
 
-```
+```bash
 php dino_container/roar.php
 ```
 
@@ -64,15 +64,15 @@ roars at us. It still works like before.
 
 Now, to the container? First, the basics:
 
-1) A service is just a fancy name a computer science major made up to describe
-    a useful object. A logger is a useful object, so it's a service. A mailer
-    object, a database connection object and an object that talks to your
-    coffee maker's API: all useful objects, all services.
+1. A service is just a fancy name a computer science major made up to describe
+   a useful object. A logger is a useful object, so it's a service. A mailer
+   object, a database connection object and an object that talks to your
+   coffee maker's API: all useful objects, all services.
 
-2) A container is an object, but it's really just an associative array that
-    holds all your service objects. You ask it for a service by some nickname,
-    and it gives you back that object. And it has some other super-powers
-    that we'll see later.
+2. A container is an object, but it's really just an associative array that
+   holds all your service objects. You ask it for a service by some nickname,
+   and it gives you back that object. And it has some other super-powers
+   that we'll see later.
 
 Got it? Great, create a `$container` variable and set it to a new `ContainerBuilder`
 object.

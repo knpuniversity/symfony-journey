@@ -19,12 +19,12 @@ This means that instead of creating a `Logger`, create an `$loggerDefinition`
 variable and set it to a new `Definition` object. For the first argument,
 pass it the class name - `Monolog\Logger`.
 
-[[ code('5e5830c030') ]]
+[[[ code('5e5830c030') ]]]
 
 This `Definition` object knows everything about *how* to instantiate an object.
 We'll use it to *teach* the container that when I ask for the `logger` service,
 this is *how* you should create it. So naturally, if the class has constructor
-arguments, we need to configure those. Do that with `$loggerDefinition->setArguments`,
+arguments, we need to configure those. Do that with `$loggerDefinition->setArguments()`,
 and this takes an array of the arguments. The first is just a string: `main`:
 
 [[[ code('0280b11f45') ]]]

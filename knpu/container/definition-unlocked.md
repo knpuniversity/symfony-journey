@@ -81,7 +81,7 @@ tail dino_container/dino.log
 
 Hey, there's one message! But inside `dino.log`, we see *both*. So why did
 only one message get printed to the screen? Actually, it's just a matter of
-order: we're calling the `debug` method *before* pushing the second handler.
+order: we're calling the `debug()` method *before* pushing the second handler.
 If you want to fix things, just rearrange the two method calls. Now it prints
 both.
 
