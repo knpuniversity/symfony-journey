@@ -7,9 +7,11 @@ summary: |
     Besides the occassional [dinosaur](http://upload.wikimedia.org/wikipedia/commons/a/a0/Amazing_Stories_June_1926.jpg),
     expect to do the following on our adventure:
 
-    * Debug that code that boots Symfony's Kernel
+    * Build a container from scratch
+    * Master the **ContainerBuilder** and **Definition** objects: the backbones to the container
+    * See how Definitions are built with YAML
+    * Dump the container to PHP code and use it
     * See how Symfony *builds* the container (woh)
-    * Learn about the ContainerBuilder
     * Learn how DependencyInjection Extension classes work (i.e. the guys who process all that `config.yml` stuff)
     * Discover existing compiler passes and create your own
 
