@@ -34,9 +34,9 @@ chapters:
     yaml:
         video_key: 4yn27ndvo0
     parameters:
-        is_finished: kh1jyh0td2
+        video_key: kh1jyh0td2
     dumper:
-        is_finished: yhxg7yyf4s
+        video_key: yhxg7yyf4s
     symfony-builds-the-container:
         is_finished: false
     dependency-injection-extensions:
