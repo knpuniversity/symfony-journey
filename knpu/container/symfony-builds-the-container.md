@@ -159,7 +159,7 @@ from zero services to only 1. Let's dump to prove it - `$container->getDefinitio
 
 [[[ code('9dafdbdfdb') ]]]
 
-Refresh! Yep, there's just our *one* `user_agenct_subscriber` service. We can
+Refresh! Yep, there's just our *one* `user_agent_subscriber` service. We can
 dump the parameters too - `$container->getParameterBag()->all()`:
 
 [[[ code('3b619451a5') ]]]

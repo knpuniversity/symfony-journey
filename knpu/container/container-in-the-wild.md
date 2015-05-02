@@ -126,7 +126,7 @@ terminal. But we *do* now have a `dino.log`.
 
 With things working, let's also put the stream handler into the container.
 So, `$container->set()` - and here we can make up any name, so how about
-`logger.stream_hander`. Then pass it the `$streamHandler` variable:
+`logger.stream_handler`. Then pass it the `$streamHandler` variable:
 
 [[[ code('52498e181d') ]]]
 
