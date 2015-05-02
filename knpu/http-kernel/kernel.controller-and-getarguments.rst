@@ -130,7 +130,7 @@ Add a few more arguments - like ``$foo`` and ``$bar`` - and refresh::
         // ...
     }
 
-Now we have *three* items in ``$paramters``::
+Now we have *three* items in ``$parameters``::
 
     array(
         0 => ReflectionObject(
