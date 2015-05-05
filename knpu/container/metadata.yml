@@ -16,7 +16,7 @@ summary: |
     * Discover existing compiler passes and create your own
 
 illustration: sf2-journey-container.png
-hasVideoDownload: 0
+videoDownloadExtension: mov
 
 tuts_hero:
     start_step: sub-request-properly-pass-the-variable
