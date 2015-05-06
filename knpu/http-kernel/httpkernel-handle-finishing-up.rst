@@ -133,7 +133,7 @@ Look back at the original ``handle()`` function that had the try-catch block::
     }
 
 You can probably guess what's about to happen. If there *was* an exception,
-this calls ``handleException()``. This lives further below and - surpise!
+this calls ``handleException()``. This lives further below and - surprise!
 It dispatches an event called ``kernel.exception``::
 
     // vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php
