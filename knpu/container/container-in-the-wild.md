@@ -84,7 +84,14 @@ Hello Mr Container! Later, we'll see why Mr Container is called a builder.
 Working with it is simple: use `set` to put a service into it, and `get` to
 fetch that back later. Call `set` and pass it the string `logger`. That's
 the key for the service - it's like a nickname, and we could use anything we
-want. Then pass the `$logger` object:
+want.
+
+**TIP** The standard is to use lowercase characters, numbers, underscores
+and periods. Some other characters are illegal and the container is also
+optimized for non-uppercased strings. Want details? See
+[github.com/knpuniversity/symfony-journey/issues/5](https://github.com/knpuniversity/symfony-journey/issues/5).
+
+Then pass the `$logger` object:
 
 [[[ code('8bff370c01') ]]]
 
