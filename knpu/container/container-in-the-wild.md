@@ -86,10 +86,10 @@ fetch that back later. Call `set` and pass it the string `logger`. That's
 the key for the service - it's like a nickname, and we could use anything we
 want.
 
-    **TIP** The standard is to use lowercase characters, numbers, underscores
-    and periods. Some other characters are illegal and the container is also
-    optimized for non-uppercased strings. Want details? See
-    [github.com/knpuniversity/symfony-journey/issues/5](https://github.com/knpuniversity/symfony-journey/issues/5).
+**TIP** The standard is to use lowercase characters, numbers, underscores
+and periods. Some other characters are illegal and the container is also
+optimized for non-uppercased strings. Want details? See
+[github.com/knpuniversity/symfony-journey/issues/5](https://github.com/knpuniversity/symfony-journey/issues/5).
 
 Then pass the `$logger` object:
 
