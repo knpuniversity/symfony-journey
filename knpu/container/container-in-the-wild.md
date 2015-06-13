@@ -4,7 +4,7 @@ A whole mini-series on Symfony's Dependency Injection Container? Yes! Do
 you want to *really* understand how Symfony works - and also Drupal 8?
 Then you're in the right place.
 
-That's because Symfony is 2 parts. The first is the routing/controller/response
+That's because Symfony is 2 parts. The first is the request/routing/controller/response
 and event listener flow we talked about in the first Symfony Journey part.
 The second half is all about the container. Understand it, and you'll unlock
 everything.
