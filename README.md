@@ -6,27 +6,45 @@ See http://knpuniversity.com/screencast/symfony-journey.
 Installation
 ------------
 
-1) Download/install Composer into this directory. See http://getcomposer.org
+1) Download the "Code" from any screencast page (available
+   once you're susbcribed). Or, you can clone this repository
+   from GitHub
 
-2) Download the vendor files by running:
+2) If you downloaded the code, unzip it, open up a terminal,
+   and move into the `start` directory:
 
-    php composer.phar install
+```
+cd start
+```
 
-3) Point your web server at this directory, or use the built-in PHP web
-   server, which is nice and friendly (but requires PHP 5.4+)
+3) Download the vendor libraries via [Composer](https://getcomposer.org/):
 
-   cd web
-   php -S localhost:8000
+```
+composer install
+```
 
-4) Make sure a few directories are writeable:
+You will be asked for your database credentials at the end, which save
+into the app/config/parameters.yml file.
 
-   mkdir logs
-   mkdir data
-   chmod 777 logs data
+4) Build the database and load in the test data!
 
-5) Load up the app in your browser!
+```
+php app/console doctrine:database:create
+php app/console doctrine:schema:create
+php app/console doctrine:fixtures:load
+```
+
+5) Start the built-in PHP web server:
+
+```
+php app/console server:run
+```
+
+6) Load up the app in your browser!
 
     http://localhost:8000
+
+Have fun!
 
 Collaboration
 -------------
