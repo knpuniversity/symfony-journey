@@ -22,7 +22,7 @@ about that idea later - for now, just ignore it.
 The kernel.request Event
 ------------------------
 
-For us, the first interesting that happens inside of this function is that
+For us, the first interesting thing that happens inside of this function is that
 it creates a ``GetResponseEvent`` object::
 
     // vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php
