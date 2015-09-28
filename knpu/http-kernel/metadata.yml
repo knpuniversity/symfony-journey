@@ -24,25 +24,25 @@ tuts_hero:
 chapters:
     event-subscriber:
         is_free: true
-        video_key:   mms49xuxzd
+        video_key:   140191188
     httpkernel-handle:
         is_free: true
-        video_key: yp4xg4kvc2
+        video_key: 140191190
     httpkernel-router-listener:
-        video_key: 9bcr2cl9gl
+        video_key: 140191184
     determine-the-controller:
-        video_key: e8z857hdpd
+        video_key: 140191186
     kernel.controller-and-getarguments:
-        video_key: vcj1181ee4
+        video_key: 140191185
     kernel.view-event:
-        video_key: 5h3gk1ayma
+        video_key: 140191187
     httpkernel-handle-finishing-up:
-        video_key: ih2xwwgar3
+        video_key: 140191192
     magically-replace-_controller:
-        video_key: wnwad0agaz
+        video_key: 140191193
     magically-add-controller-args:
-        video_key: jptdgu85l7
+        video_key: 140191194
     sub-requests:
-        video_key: dz3h1gbm52
+        video_key: 140191195
     sub-request-internals:
-        video_key: 5i6x8kuv0i
+        video_key: 140191196
