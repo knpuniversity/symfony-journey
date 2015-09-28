@@ -24,22 +24,22 @@ tuts_hero:
 chapters:
     container-in-the-wild:
         is_free: true
-        video_key: zps1n6xol3
+        video_key: 140216510
     definition:
         is_free: true
-        video_key: t0bhilxo06
+        video_key: 140216512
     definition-unlocked:
         is_free: true
-        video_key: pnqt8rnyug
+        video_key: 140216513
     yaml:
-        video_key: 4yn27ndvo0
+        video_key: 140216511
     parameters:
-        video_key: kh1jyh0td2
+        video_key: 140216514
     dumper:
-        video_key: yhxg7yyf4s
+        video_key: 140216515
     symfony-builds-the-container:
-        video_key: g6x4d3t12u
+        video_key: 140216518
     dependency-injection-extensions:
-        video_key: 2m7l6xzfau
+        video_key: 140216516
     compiler-passes:
-        video_key: 4i35zucguj
+        video_key: 140216517
