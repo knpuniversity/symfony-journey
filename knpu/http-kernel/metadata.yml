@@ -24,7 +24,7 @@ tuts_hero:
 chapters:
     event-subscriber:
         is_free: true
-        video_key:   140191188
+        video_key: 140191188
     httpkernel-handle:
         is_free: true
         video_key: 140191190
