@@ -285,7 +285,7 @@ value from the route:
     array(
         '_controller' => 'AppBundle\Controller\DinosaurController::showAction',
         'id' => '22',
-        '_route' => 'dinosaur_list',
+        '_route' => 'dinosaur_show',
     )
 
 This shows that the end result of the routing layer is an array that has
