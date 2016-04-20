@@ -128,7 +128,7 @@ these `Configuration` classes to make that happen.
 
 This is probably one of the more bizarre classes you'll see: it builds a
 tree of valid configuration that can be used under this key. It adds a `globals`
-section, which says that the children are an array.It even has some stuff
+section, which says that the children are an array. It even has some stuff
 to validate and normalize what we put here:
 
 [[[ code('424062792d') ]]]
