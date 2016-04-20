@@ -14,7 +14,7 @@ coming at a performance cost.
 
 Let's see how much by adding some *really* basic profiling code. Up top, add
 a `$startTime` variable. And down below, figure out how much time elapsed,
-multiple it by 1000 to get microseconds, and while we're here, round it.
+multiply it by 1000 to get microseconds, and while we're here, round it.
 And hey, let's use our container to get out the `logger` and debug a message
 about this:
 
