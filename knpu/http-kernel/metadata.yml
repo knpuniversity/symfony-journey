@@ -16,7 +16,6 @@ summary: |
     * Create your own sub-request manually
 
 illustration: sf2-journey-kernel.png
-videoDownloadExtension: mov
 
 tuts_hero:
     start_step: start
