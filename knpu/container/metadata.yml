@@ -20,6 +20,7 @@ videoDownloadExtension: mov
 
 tuts_hero:
     start_step: sub-request-properly-pass-the-variable
+    finish_step: compiler-var-dump-in-kernel
 
 chapters:
     container-in-the-wild:
