@@ -12,7 +12,7 @@ summary: |
     * Step through the `HttpKernel::handle()` method that's used in Symfony and Drupal 8
     * See where event like `kernel.request`, `kernel.response` and others are dispatched
     * Learn about request attributes and the magic they give us
-    * Find out what a sub-request and how to handle it
+    * Find out what is a sub-request and how to handle it
     * Create your own sub-request manually
 
 illustration: sf2-journey-kernel.png
