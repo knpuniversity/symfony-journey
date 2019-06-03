@@ -1,4 +1,4 @@
-title:  Journey to the Center of Symfony: The Dependency Injection Container
+title:  "Journey to the Center of Symfony: The Dependency Injection Container"
 summary: |
     Let's not just *use* Symfony, let's conquer it! In this series, we're
     going to rip open the code that builds and boots Symfony's Container
