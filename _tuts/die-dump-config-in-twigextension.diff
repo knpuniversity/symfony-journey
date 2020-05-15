@@ -1,5 +1,5 @@
 diff --git a/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php b/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
-index d8deab8..409b943 100644
+index 4b2a6c9..f6ae605 100644
 --- a/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
 +++ b/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
 @@ -33,7 +33,6 @@ class TwigExtension extends Extension

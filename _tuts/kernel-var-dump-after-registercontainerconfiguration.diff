@@ -1,12 +1,12 @@
 diff --git a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
-index d3eed40..02ec357 100644
+index 766e840..272e5c7 100644
 --- a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
 +++ b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
-@@ -645,6 +645,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
+@@ -620,6 +620,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
          if (null !== $cont = $this->registerContainerConfiguration($this->getContainerLoader($container))) {
              $container->merge($cont);
          }
 +        var_dump($container->getDefinitions());die;
  
          $container->addCompilerPass(new AddClassesToCachePass($this));
- 
+         $container->addResource(new EnvParametersResource('SYMFONY__'));

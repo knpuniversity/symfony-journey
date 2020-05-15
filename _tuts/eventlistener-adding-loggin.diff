@@ -1,8 +1,8 @@
 diff --git a/app/cache/dev/appDevDebugProjectContainer.php b/app/cache/dev/appDevDebugProjectContainer.php
-index 14764a6..316aa98 100644
+index 6c2728a..02f1405 100644
 --- a/app/cache/dev/appDevDebugProjectContainer.php
 +++ b/app/cache/dev/appDevDebugProjectContainer.php
-@@ -3827,7 +3827,7 @@ class appDevDebugProjectContainer extends Container
+@@ -3206,7 +3206,7 @@ class appDevDebugProjectContainer extends Container
       */
      protected function getUserAgentSubscriberService()
      {

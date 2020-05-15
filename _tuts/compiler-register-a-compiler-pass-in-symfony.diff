@@ -16,10 +16,10 @@ index e6f4165..2a93702 100644
 +    }
  }
 diff --git a/app/cache/dev/appDevDebugProjectContainer.php b/app/cache/dev/appDevDebugProjectContainer.php
-index 316aa98..6024a6a 100644
+index 02f1405..66f5684 100644
 --- a/app/cache/dev/appDevDebugProjectContainer.php
 +++ b/app/cache/dev/appDevDebugProjectContainer.php
-@@ -2098,6 +2098,7 @@ class appDevDebugProjectContainer extends Container
+@@ -1481,6 +1481,7 @@ class appDevDebugProjectContainer extends Container
          $instance->pushHandler($this->get('monolog.handler.console'));
          $instance->pushHandler($this->get('monolog.handler.main'));
          $instance->pushHandler($this->get('monolog.handler.debug'));

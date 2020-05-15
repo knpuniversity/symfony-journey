@@ -1,8 +1,8 @@
 diff --git a/app/cache/dev/appDevDebugProjectContainer.php b/app/cache/dev/appDevDebugProjectContainer.php
-index 6024a6a..ac99b15 100644
+index 66f5684..c1014d3 100644
 --- a/app/cache/dev/appDevDebugProjectContainer.php
 +++ b/app/cache/dev/appDevDebugProjectContainer.php
-@@ -3723,6 +3723,7 @@ class appDevDebugProjectContainer extends Container
+@@ -3102,6 +3102,7 @@ class appDevDebugProjectContainer extends Container
          $instance->addExtension(new \Symfony\Bridge\Twig\Extension\DumpExtension($this->get('var_dumper.cloner')));
          $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
          $instance->addGlobal('app', $this->get('templating.globals'));
@@ -11,7 +11,7 @@ index 6024a6a..ac99b15 100644
          return $instance;
      }
 diff --git a/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php b/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
-index 409b943..85bb36a 100644
+index f6ae605..466963a 100644
 --- a/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
 +++ b/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/DependencyInjection/TwigExtension.php
 @@ -52,7 +52,6 @@ class TwigExtension extends Extension

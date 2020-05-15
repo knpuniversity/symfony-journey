@@ -1,8 +1,8 @@
 diff --git a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
-index d3eed40..248e95c 100644
+index 766e840..fff553e 100644
 --- a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
 +++ b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
-@@ -556,6 +556,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
+@@ -531,6 +531,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
          $fresh = true;
          if (!$cache->isFresh()) {
              $container = $this->buildContainer();

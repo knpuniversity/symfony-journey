@@ -1,8 +1,8 @@
 diff --git a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
-index 9d867cd..d3eed40 100644
+index 26e15d1..766e840 100644
 --- a/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
 +++ b/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php
-@@ -639,7 +639,6 @@ abstract class Kernel implements KernelInterface, TerminableInterface
+@@ -614,7 +614,6 @@ abstract class Kernel implements KernelInterface, TerminableInterface
          }
  
          $container = $this->getContainerBuilder();
